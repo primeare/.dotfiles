@@ -1,0 +1,34 @@
+[character]
+success_symbol = "[➜](green)"
+error_symbol = "[➜](red)"
+
+[battery]
+full_symbol = "" # the battery is full
+charging_symbol = "" # the battery is charging
+discharging_symbol = "" # the battery is discharging
+unknown_symbol = "" # the battery state is unknown
+empty_symbol = "" # the battery state is empty
+format = "[$symbol$percentage]($style) "
+
+[[battery.display]]
+threshold = 20
+style = "bold red"
+
+[[battery.display]]
+threshold = 30
+style = "yellow"
+
+[[battery.display]]
+threshold = 80
+style = "green"
+
+[cmd_duration]
+show_milliseconds = true
+
+[memory_usage]
+disabled = false
+threshold = 60
+symbol = "memory: "
+
+[nodejs]
+symbol = "Node.js "
