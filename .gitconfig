@@ -1,0 +1,11 @@
+[init]
+  defaultBranch = main
+[push]
+  default = current
+[user]
+	name = Vladyslav Dukhin
+	email = 15850680+primeare@users.noreply.github.com
+[core]
+	editor = code --wait
+[color]
+  ui = auto
