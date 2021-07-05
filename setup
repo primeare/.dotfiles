@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Install Apple's Command Line Tools
+xcode-select --install
+
+# Git
+ln -s -v "$(pwd)/.gitconfig" ~/.gitconfig
+
+# Fish shell (https://fishshell.com)
+ln -s -v "$(pwd)/.config/fish/config.fish" ~/.config/fish/config.fish
+
+# Starship (https://starship.rs)
+ln -s -v "$(pwd)/.config/starship.toml" ~/.config/starship.toml
