@@ -1,0 +1,169 @@
+{
+  // Editor
+  "editor.fontFamily": "Fira Code, monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.tabSize": 2,
+  "editor.rulers": [80],
+  "editor.minimap.enabled": false,
+  "editor.tabCompletion": "on",
+  "editor.suggest.localityBonus": true,
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.smoothScrolling": true,
+  "editor.suggestSelection": "first",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.suggest.preview": true,
+  "editor.parameterHints.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    // "source.organizeImports": true,
+    // "source.sortImports": true
+  },
+
+  // Workbench
+  "workbench.colorTheme": "GitHub Dark",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.startupEditor": "none",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.closeOnFileDelete": false,
+  "workbench.tree.renderIndentGuides": "onHover",
+  "workbench.editor.untitled.experimentalLanguageDetection": true,
+
+  // Files
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.eol": "\n",
+  "files.defaultLanguage": "${activeEditorLanguage}",
+
+  // Explorer
+  "explorer.confirmDelete": true,
+
+  // Integrated Terminal
+  "terminal.integrated.fontFamily": "Fira Code, monospace",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorBlinking": true,
+
+  // Debug
+  "debug.inlineValues": true,
+  "debug.showBreakpointsInOverviewRuler": true,
+
+  // Zen Mode
+  "zenMode.hideTabs": false,
+
+  // Telemetry
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  "redhat.telemetry.enabled": false,
+  "sonarlint.disableTelemetry": true,
+
+  // Breadcrumbs
+  "breadcrumbs.enabled": true,
+  "breadcrumbs.icons": true,
+
+  // Diff Editor
+  "diffEditor.codeLens": true,
+  "diffEditor.maxComputationTime": 0,
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  // Git
+  "git.untrackedChanges": "separate",
+  "git.allowNoVerifyCommit": false,
+  "git.allowForcePush": false,
+
+  // JavaScript
+  "javascript.updateImportsOnFileMove.enabled": "prompt",
+  "javascript.preferences.importModuleSpecifierEnding": "js",
+
+  // JavaScript specific configurations
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+
+  // HTML
+  "html.format.indentInnerHtml": true,
+  "html.format.indentHandlebars": true,
+  "html.format.wrapLineLength": 80,
+
+  // Bracket Pair Colorizer 2
+  "bracket-pair-colorizer-2.forceIterationColorCycle": true,
+  "bracket-pair-colorizer-2.highlightActiveScope": true,
+
+  // Code Spell Checker
+  "cSpell.language": "en,ru,uk",
+  "cSpell.userWords": [
+    "keychain",
+    "middleware"
+  ],
+
+  // GitLens
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+
+  // ESLint
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+
+  // Visual Studio IntelliCode
+  "vsintellicode.sql.completionsEnabled": true,
+  "vsintellicode.typescript.completionsEnabled": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+  // Prisma specific configurations
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+
+  // Better Comments
+  "better-comments.multilineComments": true,
+  "better-comments.tags": [
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "bug",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    }
+  ],
+}

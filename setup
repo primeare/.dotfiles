@@ -1,13 +1,29 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" &> /dev/null && pwd)"
+
+GIT_CONFIG_PATH="$SCRIPT_DIR/.gitconfig"
+FISH_CONFIG_PATH="$SCRIPT_DIR/.config/fish/config.fish"
+STARSHIP_CONFIG_PATH="$SCRIPT_DIR/.config/starship.toml"
+VSCODE_SETTINGS_PATH="$SCRIPT_DIR/.vscode/settings.json"
+
 # Install Apple's Command Line Tools
+#
 xcode-select --install
 
 # Git
-ln -s -v "$(pwd)/.gitconfig" ~/.gitconfig
+#
+ln -f -s -v $GIT_CONFIG_PATH ~/.gitconfig
 
 # Fish shell (https://fishshell.com)
-ln -s -v "$(pwd)/.config/fish/config.fish" ~/.config/fish/config.fish
+#
+ln -f -s -v $FISH_CONFIG_PATH ~/.config/fish/config.fish
+chsh -s /usr/local/bin/fish
 
 # Starship (https://starship.rs)
-ln -s -v "$(pwd)/.config/starship.toml" ~/.config/starship.toml
+#
+ln -f -s -v $STARSHIP_CONFIG_PATH ~/.config/starship.toml
+
+# Visual Studio Code (https://code.visualstudio.com)
+#
+ln -f -s -v $VSCODE_SETTINGS_PATH ~/Library/Application\ Support/Code/User/settings.json
