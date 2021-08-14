@@ -3,9 +3,18 @@
 [push]
   default = current
 [user]
-	name = Vladyslav Dukhin
-	email = 15850680+primeare@users.noreply.github.com
+  name = Vladyslav Dukhin
+  email = 15850680+primeare@users.noreply.github.com
 [core]
-	editor = code --wait
+  # editor = nano -w
+  editor = code --wait
 [color]
   ui = auto
+[instaweb]
+  local = true
+  port = 4321
+[alias]
+  s = status
+  c = commit
+  ca = commit --amend
+  l = log --oneline --graph --decorate
