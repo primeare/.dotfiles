@@ -18,3 +18,6 @@
   c = commit
   ca = commit --amend
   l = log --oneline --graph --decorate
+  # outputs log that relates to a specified file
+  # ex. (git file-log .gitconfig)
+  file-log = log --follow --graph --decorate -p --
