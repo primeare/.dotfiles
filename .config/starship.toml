@@ -1,3 +1,5 @@
+command_timeout = 700
+
 [character]
 success_symbol = "[➜](green)"
 error_symbol = "[➜](red)"
@@ -25,10 +27,13 @@ style = "green"
 [cmd_duration]
 show_milliseconds = true
 
+[git_metrics]
+disabled = false
+
 [memory_usage]
 disabled = false
-threshold = 60
-symbol = "memory: "
+threshold = 80
+symbol = "💾 "
 
 [nodejs]
-symbol = "Node.js "
+symbol = "⏣ "
