@@ -91,7 +91,7 @@
   "bracket-pair-colorizer-2.highlightActiveScope": true,
 
   // Code Spell Checker
-  "cSpell.language": "en,ru,uk",
+  "cSpell.language": "en",
   "cSpell.userWords": [
     "keychain",
     "middleware"
