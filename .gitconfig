@@ -28,6 +28,11 @@
   # outputs the log graph of git history with statistics
   # ex. (git l)
   l = log --oneline --graph --decorate --stat
+  # stash the changes in a dirty working directory away, include untracked
+  # ex. (git st)
+  st = stash push --include-untracked --message
+  # ex. (git stl)
+  stl = stash list
   # outputs log that relates to a specified file
   # ex. (git file-log .gitconfig)
   file-log = log --follow --graph --decorate -p --
