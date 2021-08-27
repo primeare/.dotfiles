@@ -7,8 +7,9 @@
 ```sh
 curl -fsSL https://starship.rs/install.sh | bash
 ```
-3. Install [Xcode](https://apps.apple.com/ua/app/xcode/id497799835?mt=12) from AppStore
-4. Install [Visual Studio Code](https://code.visualstudio.com) using installer
-5. Run `Install 'code' command in PATH` on the Command Palette in [Visual Studio Code](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)
-6. Install [Docker Desktop](https://www.docker.com/products/docker-desktop) using installer
-7. Run `./setup` in the terminal
+3. Install [FiraCode](https://github.com/tonsky/FiraCode) font
+4. Install [Xcode](https://apps.apple.com/ua/app/xcode/id497799835?mt=12) from AppStore
+5. Install [Visual Studio Code](https://code.visualstudio.com) using installer
+6. Run `Install 'code' command in PATH` on the Command Palette in [Visual Studio Code](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)
+7. Install [Docker Desktop](https://www.docker.com/products/docker-desktop) using installer
+8. Run `./setup` in the terminal
