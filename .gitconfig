@@ -14,10 +14,20 @@
   local = true
   port = 4321
 [alias]
+  # ex. (git s)
   s = status
+  # ex. (git c)
   c = commit
+  # ex. (git ca)
   ca = commit --amend
-  l = log --oneline --graph --decorate
+  # ex. (git co main, git co -b feature, git co -)
+  co = checkout
+  # pushes changes to the remote branch of the same name
+  # ex. (git done)
+  p = push origin HEAD
+  # outputs the log graph of git history with statistics
+  # ex. (git l)
+  l = log --oneline --graph --decorate --stat
   # outputs log that relates to a specified file
   # ex. (git file-log .gitconfig)
   file-log = log --follow --graph --decorate -p --
