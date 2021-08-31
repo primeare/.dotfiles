@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# exit immediately if a pipeline exits with a non-zero status
+set -eo pipefail
+
 # Better Comments
 code --install-extension aaron-bond.better-comments
 # Bracket Pair Colorizer 2
@@ -20,6 +23,8 @@ code --install-extension github.github-vscode-theme
 code --install-extension eamodio.gitlens
 # Hex Editor
 code --install-extension ms-vscode.hexeditor
+# Live Preview
+code --install-extension ms-vscode.live-server
 # NPM Intellisense
 code --install-extension christian-kohler.npm-intellisense
 # Path Intellisense

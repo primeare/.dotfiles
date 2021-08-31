@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# exit immediately if a pipeline exits with a non-zero status
+set -eo pipefail
+
 SCRIPT_DIR="$(cd "$(dirname "$0")" &> /dev/null && pwd)"
 
 GIT_CONFIG_PATH="$SCRIPT_DIR/.gitconfig"
@@ -7,24 +10,29 @@ FISH_CONFIG_PATH="$SCRIPT_DIR/.config/fish/config.fish"
 STARSHIP_CONFIG_PATH="$SCRIPT_DIR/.config/starship.toml"
 VSCODE_SETTINGS_PATH="$SCRIPT_DIR/.vscode/settings.json"
 
-# Install Apple's Command Line Tools
-#
+# ask for superuser password once at the script startup
+sudo --validate
+
+# install Starship prompt
+$SCRIPT_DIR/scripts/install-starship.sh
+
+# install Apple's Command Line Tools
 xcode-select --install
 
-# Git
-#
+# link user's Git configuration
 ln -f -s -v $GIT_CONFIG_PATH ~/.gitconfig
 
-# Fish shell (https://fishshell.com)
-#
+# link Fish shell configuration
 ln -f -s -v $FISH_CONFIG_PATH ~/.config/fish/config.fish
+
+# change default user's shell to Fish
 chsh -s /usr/local/bin/fish
 
-# Starship (https://starship.rs)
-#
+# link Starship prompt configuration
 ln -f -s -v $STARSHIP_CONFIG_PATH ~/.config/starship.toml
 
-# Visual Studio Code (https://code.visualstudio.com)
-#
-$SCRIPT_DIR/setup-vscode-extensions
+# install Visual Studio Code extensions
+$SCRIPT_DIR/scripts/install-vscode-extensions.sh
+
+# link Visual Studio Code settings
 ln -f -s -v $VSCODE_SETTINGS_PATH ~/Library/Application\ Support/Code/User/settings.json

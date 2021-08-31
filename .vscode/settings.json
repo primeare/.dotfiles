@@ -92,6 +92,9 @@
 
   // Code Spell Checker
   "cSpell.language": "en",
+  "cSpell.enableFiletypes": [
+    "shellscript"
+  ],
   "cSpell.userWords": [
     "keychain",
     "middleware"
