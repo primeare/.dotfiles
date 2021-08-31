@@ -23,7 +23,7 @@
   # ex. (git co main, git co -b feature, git co -)
   co = checkout
   # pushes changes to the remote branch of the same name
-  # ex. (git done)
+  # ex. (git p)
   p = push origin HEAD
   # outputs the log graph of git history with statistics
   # ex. (git l)
@@ -35,4 +35,4 @@
   stl = stash list
   # outputs log that relates to a specified file
   # ex. (git file-log .gitconfig)
-  file-log = log --follow --graph --decorate -p --
+  file-log = log --follow --graph --decorate --patch --
