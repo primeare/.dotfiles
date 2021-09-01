@@ -1,38 +1,40 @@
 [init]
-  defaultBranch = main
+	defaultBranch = main
 [push]
-  default = current
+	default = current
+[pull]
+	ff = only
 [user]
-  name = Vladyslav Dukhin
-  email = 15850680+primeare@users.noreply.github.com
+	name = Vladyslav Dukhin
+	email = 15850680+primeare@users.noreply.github.com
 [core]
-  # editor = nano -w
-  editor = code --wait
+	# editor = nano -w
+	editor = code --wait
 [color]
-  ui = auto
+	ui = auto
 [instaweb]
-  local = true
-  port = 4321
+	local = true
+	port = 4321
 [alias]
-  # ex. (git s)
-  s = status
-  # ex. (git c)
-  c = commit
-  # ex. (git ca)
-  ca = commit --amend
-  # ex. (git co main, git co -b feature, git co -)
-  co = checkout
-  # pushes changes to the remote branch of the same name
-  # ex. (git p)
-  p = push origin HEAD
-  # outputs the log graph of git history with statistics
-  # ex. (git l)
-  l = log --oneline --graph --decorate --stat
-  # stash the changes in a dirty working directory away, include untracked
-  # ex. (git st)
-  st = stash push --include-untracked --message
-  # ex. (git stl)
-  stl = stash list
-  # outputs log that relates to a specified file
-  # ex. (git file-log .gitconfig)
-  file-log = log --follow --graph --decorate --patch --
+	# ex. (git s)
+	s = status
+	# ex. (git c)
+	c = commit
+	# ex. (git ca)
+	ca = commit --amend
+	# ex. (git co main, git co -b feature, git co -)
+	co = checkout
+	# pushes changes to the remote branch of the same name
+	# ex. (git p)
+	p = push origin HEAD
+	# outputs the log graph of git history with statistics
+	# ex. (git l)
+	l = log --oneline --graph --decorate --stat
+	# stash the changes in a dirty working directory away, include untracked
+	# ex. (git st "some awesome code")
+	st = stash push --include-untracked --message
+	# ex. (git stl)
+	stl = stash list
+	# outputs log that relates to a specified file
+	# ex. (git file-log .gitconfig)
+	file-log = log --follow --graph --decorate --patch --
