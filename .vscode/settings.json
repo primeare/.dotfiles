@@ -12,6 +12,7 @@
   "editor.smoothScrolling": true,
   "editor.suggestSelection": "first",
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.bracketPairColorization.enabled": true,
   "editor.suggest.preview": true,
   "editor.parameterHints.enabled": true,
   "editor.formatOnSave": true,
@@ -28,7 +29,6 @@
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.closeOnFileDelete": false,
   "workbench.tree.renderIndentGuides": "onHover",
-  "workbench.editor.untitled.experimentalLanguageDetection": true,
 
   // Files
   "files.trimFinalNewlines": true,
@@ -44,10 +44,13 @@
   "terminal.integrated.fontFamily": "Fira Code, monospace",
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.customGlyphs": true,
 
   // Debug
   "debug.inlineValues": true,
   "debug.showBreakpointsInOverviewRuler": true,
+  "debug.confirmOnExit": "always",
 
   // Zen Mode
   "zenMode.hideTabs": false,
@@ -73,8 +76,17 @@
   "git.allowForcePush": false,
 
   // JavaScript
+  "js/ts.implicitProjectConfig.checkJs": true,
+  "js/ts.implicitProjectConfig.strictNullChecks": true,
+  "js/ts.implicitProjectConfig.strictFunctionTypes": true,
   "javascript.updateImportsOnFileMove.enabled": "prompt",
   "javascript.preferences.importModuleSpecifierEnding": "js",
+  "javascript.suggestionActions.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  // "javascript.inlayHints.variableTypes.enabled": true,
+  // "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  // "javascript.inlayHints.parameterTypes.enabled": true,
+  // "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
 
   // JavaScript specific configurations
   "[javascript]": {
@@ -85,10 +97,6 @@
   "html.format.indentInnerHtml": true,
   "html.format.indentHandlebars": true,
   "html.format.wrapLineLength": 80,
-
-  // Bracket Pair Colorizer 2
-  "bracket-pair-colorizer-2.forceIterationColorCycle": true,
-  "bracket-pair-colorizer-2.highlightActiveScope": true,
 
   // Code Spell Checker
   "cSpell.language": "en",

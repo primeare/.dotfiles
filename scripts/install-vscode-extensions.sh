@@ -5,8 +5,6 @@ set -eo pipefail
 
 # Better Comments
 code --install-extension aaron-bond.better-comments
-# Bracket Pair Colorizer 2
-code --install-extension coenraads.bracket-pair-colorizer-2
 # Code Spell Checker
 code --install-extension streetsidesoftware.code-spell-checker
 # Docker
