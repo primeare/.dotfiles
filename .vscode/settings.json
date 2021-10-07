@@ -11,8 +11,9 @@
   "editor.cursorSmoothCaretAnimation": true,
   "editor.smoothScrolling": true,
   "editor.suggestSelection": "first",
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.defaultFormatter": "VisualStudioExptTeam.vscodeintellicode",
   "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
   "editor.suggest.preview": true,
   "editor.parameterHints.enabled": true,
   "editor.formatOnSave": true,
@@ -29,6 +30,9 @@
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.closeOnFileDelete": false,
   "workbench.tree.renderIndentGuides": "onHover",
+  "workbench.editor.autoLockGroups":{
+    "terminalEditor": true,
+  },
 
   // Files
   "files.trimFinalNewlines": true,
@@ -56,8 +60,7 @@
   "zenMode.hideTabs": false,
 
   // Telemetry
-  "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
+  "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
   "sonarlint.disableTelemetry": true,
 
@@ -82,13 +85,11 @@
   "javascript.updateImportsOnFileMove.enabled": "prompt",
   "javascript.preferences.importModuleSpecifierEnding": "js",
   "javascript.suggestionActions.enabled": true,
-  "javascript.inlayHints.parameterNames.enabled": "all",
+  // "javascript.inlayHints.parameterNames.enabled": "all",
   // "javascript.inlayHints.variableTypes.enabled": true,
   // "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
   // "javascript.inlayHints.parameterTypes.enabled": true,
   // "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-
-  // JavaScript specific configurations
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
@@ -97,6 +98,14 @@
   "html.format.indentInnerHtml": true,
   "html.format.indentHandlebars": true,
   "html.format.wrapLineLength": 80,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+
+  // CSS
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
 
   // Code Spell Checker
   "cSpell.language": "en",
