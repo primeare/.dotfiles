@@ -38,3 +38,6 @@
 	# outputs log that relates to a specified file
 	# ex. (git file-log .gitconfig)
 	file-log = log --follow --graph --decorate --patch --
+	# outputs a condensed summary of the working directory against the branch
+	# ex. (git summary, git summary main)
+	summary = diff --compact-summary
