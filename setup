@@ -7,6 +7,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" &> /dev/null && pwd)"
 
 GIT_CONFIG_PATH="$SCRIPT_DIR/.gitconfig"
 FISH_CONFIG_PATH="$SCRIPT_DIR/.config/fish/config.fish"
+FISH_FUNCTIONS_PATH="$SCRIPT_DIR/.config/fish/functions"
 STARSHIP_CONFIG_PATH="$SCRIPT_DIR/.config/starship.toml"
 VSCODE_SETTINGS_PATH="$SCRIPT_DIR/.vscode/settings.json"
 
@@ -15,6 +16,9 @@ sudo --validate
 
 # install Starship prompt
 $SCRIPT_DIR/scripts/install-starship.sh
+
+# accept XCode license
+sudo xcodebuild -license accept
 
 # install Apple's Command Line Tools
 # ignore "already installed" error if it appears
@@ -25,6 +29,9 @@ ln -f -s -v $GIT_CONFIG_PATH ~/.gitconfig
 
 # link Fish shell configuration
 ln -f -s -v $FISH_CONFIG_PATH ~/.config/fish/config.fish
+
+# link Fish shell user functions
+ln -f -s -v $FISH_FUNCTIONS_PATH ~/.config/fish
 
 # change default user's shell to Fish
 chsh -s /usr/local/bin/fish
