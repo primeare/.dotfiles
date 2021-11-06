@@ -1,23 +1,31 @@
+# See `git help config` for more information
+
 [init]
 	defaultBranch = main
 [push]
 	default = current
 [pull]
 	ff = only
+[diff]
+	renames = copies
 [user]
 	name = Vladyslav Dukhin
 	email = 15850680+primeare@users.noreply.github.com
+[credential]
+	helper = osxkeychain
 [core]
 	# editor = nano -w
 	editor = code --wait
 [color]
 	ui = auto
+[commit]
+	template = ~/.gitmessage
 [instaweb]
 	local = true
 	port = 4321
 [alias]
 	# ex. (git s)
-	s = status
+	s = status --show-stash --ahead-behind --renames
 	# ex. (git c)
 	c = commit
 	# ex. (git ca)

@@ -1,0 +1,25 @@
+# SUBJECT (required)
+#
+# type: fix, feat, test, docs, refactor, perf, chore, build, ci, style, revert
+# scope: common, core, client, server, router, service, changelog etc.
+# subject: a succinct description of the change in imperative present tense
+# ! after the type/scope, introduces a breaking change
+#
+# Ex. "feat(parser): add ability to parse arrays"
+# Ex. "refactor(runtime)!: drop support for Node.js 10"
+# Ex. "docs: correct spelling of CHANGELOG"
+#
+<type>(optional scope): <subject>
+
+# BODY (optional)
+#
+# Ex. "This reverts commit <commit-hash>."
+#
+
+# FOOTER (optional)
+#
+# BREAKING CHANGE: <description>
+# Co-authored-by: name <name@example.com>
+# Signed-off-by: name <name@example.com>
+# Closes: #ISSUE_NUMBER
+#

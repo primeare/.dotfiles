@@ -6,6 +6,7 @@ set -eo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" &> /dev/null && pwd)"
 
 GIT_CONFIG_PATH="$SCRIPT_DIR/.gitconfig"
+GIT_CONFIG_MESSAGE_TEMPLATE="$SCRIPT_DIR/.gitmessage"
 FISH_CONFIG_PATH="$SCRIPT_DIR/.config/fish/config.fish"
 FISH_FUNCTIONS_PATH="$SCRIPT_DIR/.config/fish/functions"
 STARSHIP_CONFIG_PATH="$SCRIPT_DIR/.config/starship.toml"
@@ -26,6 +27,9 @@ xcode-select --install || true
 
 # link user's Git configuration
 ln -f -s -v $GIT_CONFIG_PATH ~/.gitconfig
+
+# link user's Git message template
+ln -f -s -v $GIT_CONFIG_PATH ~/.gitmessage
 
 # link Fish shell configuration
 ln -f -s -v $FISH_CONFIG_PATH ~/.config/fish/config.fish

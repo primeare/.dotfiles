@@ -107,6 +107,14 @@
     "editor.defaultFormatter": "vscode.css-language-features"
   },
 
+  // Git Commit Message
+  "[git-commit]": {
+    // git commit message subject max lenght is 72 characters on GitHub
+    // but even better to keep a subject shorter
+    // git commit message body should be within 80 charachetrs per line
+    "editor.rulers": [72, 80]
+  },
+
   // Code Spell Checker
   "cSpell.language": "en",
   "cSpell.enableFiletypes": [
