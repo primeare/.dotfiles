@@ -7,20 +7,30 @@
   "editor.rulers": [80],
   "editor.minimap.enabled": false,
   "editor.tabCompletion": "on",
-  "editor.suggest.localityBonus": true,
   "editor.cursorSmoothCaretAnimation": true,
   "editor.smoothScrolling": true,
-  "editor.suggestSelection": "first",
-  "editor.defaultFormatter": "VisualStudioExptTeam.vscodeintellicode",
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": true,
+  "editor.suggest.localityBonus": true,
   "editor.suggest.preview": true,
+  "editor.suggestSelection": "first",
+  "editor.snippetSuggestions": "top",
+  "editor.accessibilitySupport": "off",
+  "editor.unicodeHighlight.ambiguousCharacters": true,
+  "editor.unicodeHighlight.invisibleCharacters": true,
+  "editor.unicodeHighlight.nonBasicASCII": true,
+  "editor.unicodeHighlight.includeComments": true,
+  "editor.bracketPairColorization.enabled": true,
   "editor.parameterHints.enabled": true,
+  "editor.parameterHints.cycle": true,
+  "editor.guides.bracketPairs": true,
+  "editor.linkedEditing": true,
   "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.defaultFormatter": "VisualStudioExptTeam.vscodeintellicode",
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
-    // "source.organizeImports": true,
-    // "source.sortImports": true
+    "source.organizeImports": true,
+    "source.sortImports": true
   },
 
   // Workbench
@@ -30,9 +40,6 @@
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.closeOnFileDelete": false,
   "workbench.tree.renderIndentGuides": "onHover",
-  "workbench.editor.autoLockGroups":{
-    "terminalEditor": true,
-  },
 
   // Files
   "files.trimFinalNewlines": true,
@@ -77,19 +84,21 @@
   "git.untrackedChanges": "separate",
   "git.allowNoVerifyCommit": false,
   "git.allowForcePush": false,
+  "git.inputValidationSubjectLength": 72,
+  "scm.diffDecorationsIgnoreTrimWhitespace": "false",
+  "[git-commit]": {
+    // git commit message subject max lenght is 72 characters on GitHub
+    // but even better to keep a subject shorter (less than 50)
+    "editor.rulers": [50, 72],
+    "workbench.editor.restoreViewState": false
+  },
 
-  // JavaScript
+  // JavaScript and TypeScript
   "js/ts.implicitProjectConfig.checkJs": true,
   "js/ts.implicitProjectConfig.strictNullChecks": true,
   "js/ts.implicitProjectConfig.strictFunctionTypes": true,
   "javascript.updateImportsOnFileMove.enabled": "prompt",
   "javascript.preferences.importModuleSpecifierEnding": "js",
-  "javascript.suggestionActions.enabled": true,
-  // "javascript.inlayHints.parameterNames.enabled": "all",
-  // "javascript.inlayHints.variableTypes.enabled": true,
-  // "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
-  // "javascript.inlayHints.parameterTypes.enabled": true,
-  // "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
@@ -107,22 +116,19 @@
     "editor.defaultFormatter": "vscode.css-language-features"
   },
 
-  // Git Commit Message
-  "[git-commit]": {
-    // git commit message subject max lenght is 72 characters on GitHub
-    // but even better to keep a subject shorter
-    // git commit message body should be within 80 charachetrs per line
-    "editor.rulers": [72, 80]
+  // Emmet
+  "emmet.showSuggestionsAsSnippets": true,
+  "emmet.preferences": {
+    "bem.elementSeparator": "__",
+    "bem.modifierSeparator": "--",
+    "output.inlineBreak": 1
   },
 
   // Code Spell Checker
-  "cSpell.language": "en",
+  "cSpell.language": "en-GB",
   "cSpell.enableFiletypes": [
-    "shellscript"
-  ],
-  "cSpell.userWords": [
-    "keychain",
-    "middleware"
+    "shellscript",
+    "properties"
   ],
 
   // GitLens
@@ -139,6 +145,12 @@
   "vsintellicode.sql.completionsEnabled": true,
   "vsintellicode.typescript.completionsEnabled": true,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+  // Screencast Mode
+  "screencastMode.keyboardShortcutsFormat": "commandWithGroupAndKeys",
+
+  // Notebook
+  "notebook.globalToolbarShowLabel": "dynamic",
 
   // Prisma specific configurations
   "[prisma]": {
@@ -193,5 +205,5 @@
       "bold": false,
       "italic": false
     }
-  ],
+  ]
 }
