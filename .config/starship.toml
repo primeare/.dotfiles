@@ -31,9 +31,7 @@ show_milliseconds = true
 disabled = false
 
 [memory_usage]
-disabled = false
-threshold = 80
-symbol = "💾 "
+disabled = true
 
 [nodejs]
 symbol = "⏣ "
