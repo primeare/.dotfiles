@@ -4,13 +4,23 @@
 	defaultBranch = main
 [push]
 	default = current
+[fetch]
+	prune = true
 [pull]
 	ff = only
+[branch]
+  autosetupmerge = always
+  autosetuprebase = always
 [diff]
 	tool = vscode
 	renames = copies
 [difftool "vscode"]
 	cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+	trustExitCode = true
 [user]
 	name = Vladyslav Dukhin
 	email = 15850680+primeare@users.noreply.github.com
@@ -40,7 +50,7 @@
 	p = push origin HEAD
 	# outputs the log graph of git history with statistics
 	# ex. (git l)
-	l = log --oneline --graph --decorate --stat
+	l = log --oneline --graph --decorate --stat --show-signature
 	# stash the changes in a dirty working directory away, include untracked
 	# ex. (git st "some awesome code")
 	st = stash push --include-untracked --message

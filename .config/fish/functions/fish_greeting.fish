@@ -11,5 +11,7 @@ function fish_greeting
   end
   set_color normal
 
-  echo Current time is (set_color yellow; date +%T; set_color normal)
+  if type -q node
+    echo Node.js (node --version)
+  end
 end

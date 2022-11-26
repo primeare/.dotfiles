@@ -1,16 +1,16 @@
+# Timeout for Starship to scan files (in milliseconds)
+scan_timeout = 50
+
+# Timeout for commands executed by Starship (in milliseconds)
 command_timeout = 700
 
 [character]
 success_symbol = "[➜](green)"
 error_symbol = "[➜](red)"
+vimcmd_symbol = "[⇠](green)"
 
 [battery]
-full_symbol = "" # the battery is full
-charging_symbol = "" # the battery is charging
-discharging_symbol = "" # the battery is discharging
-unknown_symbol = "" # the battery state is unknown
-empty_symbol = "" # the battery state is empty
-format = "[$symbol$percentage]($style) "
+format = "[$percentage]($style) "
 
 [[battery.display]]
 threshold = 20

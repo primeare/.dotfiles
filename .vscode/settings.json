@@ -3,6 +3,7 @@
   "editor.fontFamily": "Fira Code, monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
+  "editor.lineHeight": 0,
   "editor.tabSize": 2,
   "editor.rulers": [80],
   "editor.minimap.enabled": false,
@@ -19,10 +20,16 @@
   "editor.unicodeHighlight.nonBasicASCII": true,
   "editor.unicodeHighlight.includeComments": true,
   "editor.bracketPairColorization.enabled": true,
+  "editor.hover.sticky": true,
+  "editor.guides.bracketPairs": true,
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "editor.inlayHints.fontFamily": "Fira Code, monospace",
+  "editor.inlayHints.fontSize": 10,
   "editor.parameterHints.enabled": true,
   "editor.parameterHints.cycle": true,
-  "editor.guides.bracketPairs": true,
   "editor.linkedEditing": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.stickyScroll.maxLineCount": 5,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
@@ -33,12 +40,17 @@
     "source.sortImports": true
   },
 
+  // Window
+  "window.zoomLevel": 0,
+
   // Workbench
   "workbench.colorTheme": "GitHub Dark",
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "none",
+  "workbench.sideBar.location": "right",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.closeOnFileDelete": false,
+  "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
   "workbench.tree.renderIndentGuides": "onHover",
   "workbench.editor.historyBasedLanguageDetection": true,
 
@@ -51,19 +63,30 @@
 
   // Explorer
   "explorer.confirmDelete": true,
+  "explorer.decorations.badges": true,
 
   // Integrated Terminal
+  "terminal.integrated.shellIntegration.enabled": true,
+  "terminal.integrated.shellIntegration.decorationsEnabled": "both",
   "terminal.integrated.fontFamily": "Fira Code, monospace",
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.scrollback": 5000,
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.gpuAcceleration": "on",
   "terminal.integrated.customGlyphs": true,
+  "terminal.integrated.enableBell": true,
   "terminal.integrated.autoReplies": {
     "Terminate batch job (Y/N)": "Y\r"
   },
 
+  // Audio Cues
+  "audioCues.onDebugBreak": "on",
+
   // Debug
-  "debug.inlineValues": true,
+  "debug.inlineValues": "on",
   "debug.showBreakpointsInOverviewRuler": true,
   "debug.confirmOnExit": "always",
 
@@ -85,36 +108,65 @@
   "diffEditor.ignoreTrimWhitespace": false,
 
   // Git
+  "git.mergeEditor": false,
   "git.untrackedChanges": "separate",
   "git.allowNoVerifyCommit": false,
   "git.allowForcePush": false,
   "git.inputValidationSubjectLength": 72,
+  "git.useEditorAsCommitInput": true,
+  "git.terminalGitEditor": true,
   "scm.diffDecorationsIgnoreTrimWhitespace": "false",
   "[git-commit]": {
-    // git commit message subject max lenght is 72 characters on GitHub
+    // git commit message subject max length is 72 characters on GitHub
     // but even better to keep a subject shorter (less than 50)
     "editor.rulers": [50, 72],
     "workbench.editor.restoreViewState": false
   },
 
-  // JavaScript and TypeScript
+  // Merge Editor
+  "mergeEditor.diffAlgorithm": "experimental",
+  "mergeEditor.showDeletionMarkers": true,
+
+  // JavaScript
   "js/ts.implicitProjectConfig.checkJs": true,
   "js/ts.implicitProjectConfig.strictNullChecks": true,
   "js/ts.implicitProjectConfig.strictFunctionTypes": true,
+  "js/ts.implicitProjectConfig.module": "ESNext",
+  "js/ts.implicitProjectConfig.target": "ESNext",
   "javascript.validate.enable": true,
   "javascript.updateImportsOnFileMove.enabled": "prompt",
   "javascript.preferences.quoteStyle": "single",
-  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.importModuleSpecifier": "shortest",
   "javascript.preferences.importModuleSpecifierEnding": "js",
-  "typescript.preferences.importModuleSpecifierEnding": "js",
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
 
+  // TypeScript
+  "typescript.updateImportsOnFileMove.enabled": "prompt",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "typescript.preferences.importModuleSpecifierEnding": "auto",
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+
   // HTML
   "html.format.indentInnerHtml": true,
   "html.format.indentHandlebars": true,
+  "html.format.templating": true,
   "html.format.wrapLineLength": 80,
+  "html.format.wrapAttributes": "auto",
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
@@ -126,8 +178,15 @@
 
   // CSS
   "[css]": {
-    "editor.defaultFormatter": "vscode.css-language-features"
+    "editor.defaultFormatter": "vscode.css-language-features",
+    "editor.suggest.insertMode": "replace"
   },
+
+  // Markdown
+  "markdown.validate.enabled": true,
+  "markdown.occurrencesHighlight.enabled": true,
+  "markdown.validate.duplicateLinkDefinitions.enabled": "error",
+  "markdown.validate.unusedLinkDefinitions.enabled": "warning",
 
   // Emmet
   "emmet.showSuggestionsAsSnippets": true,
@@ -141,7 +200,12 @@
   "cSpell.language": "en-GB",
   "cSpell.enableFiletypes": [
     "shellscript",
-    "properties"
+    "properties",
+    "prisma"
+  ],
+  "cSpell.userWords": [
+    "screencast",
+    "sonarlint"
   ],
 
   // GitLens
@@ -162,12 +226,16 @@
   // Screencast Mode
   "screencastMode.keyboardShortcutsFormat": "commandWithGroupAndKeys",
 
-  // Notebook
-  "notebook.globalToolbarShowLabel": "dynamic",
-
   // Prisma specific configurations
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
+  },
+
+  // JSON with comments specific configurations
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false
   },
 
   // Better Comments

@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
 # exit immediately if a pipeline exits with a non-zero status
-set -eo pipefail
+set -Eeuo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" &> /dev/null && pwd)"
 
 GIT_CONFIG_PATH="$SCRIPT_DIR/.gitconfig"
-GIT_CONFIG_MESSAGE_TEMPLATE="$SCRIPT_DIR/.gitmessage"
+GIT_CONFIG_MESSAGE_TEMPLATE_PATH="$SCRIPT_DIR/.gitmessage"
+NPM_CONFIG_PATH="$SCRIPT_DIR/.npmrc"
 FISH_CONFIG_PATH="$SCRIPT_DIR/.config/fish/config.fish"
 FISH_FUNCTIONS_PATH="$SCRIPT_DIR/.config/fish/functions"
 STARSHIP_CONFIG_PATH="$SCRIPT_DIR/.config/starship.toml"
@@ -15,8 +16,8 @@ VSCODE_SETTINGS_PATH="$SCRIPT_DIR/.vscode/settings.json"
 # ask for superuser password once at the script startup
 sudo --validate
 
-# install Starship prompt
-$SCRIPT_DIR/scripts/install-starship.sh
+# print macOS version information
+sw_vers
 
 # accept XCode license
 sudo xcodebuild -license accept
@@ -25,11 +26,41 @@ sudo xcodebuild -license accept
 # ignore "already installed" error if it appears
 xcode-select --install || true
 
+# Install all appropriate software updates (OS, Safari, security etc.)
+softwareupdate --install --all --agree-to-license --verbose
+
+# Install Rosetta 2 (Apple Silicon)
+softwareupdate --install-rosetta --agree-to-license --verbose
+
+# install Fish shell
+$SCRIPT_DIR/scripts/install-fish.sh
+
+# install Starship prompt
+$SCRIPT_DIR/scripts/install-starship.sh
+
+# install Node.js
+$SCRIPT_DIR/scripts/install-nodejs.sh
+
+# install fonts
+$SCRIPT_DIR/scripts/install-fonts.sh
+
+# install Visual Studio Code
+$SCRIPT_DIR/scripts/install-vscode.sh
+
+# install Visual Studio Code extensions
+$SCRIPT_DIR/scripts/install-vscode-extensions.sh
+
+# install Docker Desktop
+$SCRIPT_DIR/scripts/install-docker.sh
+
 # link user's Git configuration
 ln -f -s -v $GIT_CONFIG_PATH ~/.gitconfig
 
 # link user's Git message template
-ln -f -s -v $GIT_CONFIG_PATH ~/.gitmessage
+ln -f -s -v $GIT_CONFIG_MESSAGE_TEMPLATE_PATH ~/.gitmessage
+
+# link NPM user settings
+ln -f -s -v $NPM_CONFIG_PATH ~/.npmrc
 
 # link Fish shell configuration
 ln -f -s -v $FISH_CONFIG_PATH ~/.config/fish/config.fish
@@ -37,14 +68,8 @@ ln -f -s -v $FISH_CONFIG_PATH ~/.config/fish/config.fish
 # link Fish shell user functions
 ln -f -s -v $FISH_FUNCTIONS_PATH ~/.config/fish
 
-# change default user's shell to Fish
-chsh -s /usr/local/bin/fish
-
 # link Starship prompt configuration
 ln -f -s -v $STARSHIP_CONFIG_PATH ~/.config/starship.toml
-
-# install Visual Studio Code extensions
-$SCRIPT_DIR/scripts/install-vscode-extensions.sh
 
 # link Visual Studio Code settings
 ln -f -s -v $VSCODE_SETTINGS_PATH ~/Library/Application\ Support/Code/User/settings.json
