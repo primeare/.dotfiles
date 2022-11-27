@@ -1,5 +1,7 @@
 # initialise Starship
 starship init fish | source
+
+# enable transient prompt
 enable_transience
 
 # add global NPM package directory to PATH

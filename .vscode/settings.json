@@ -199,9 +199,11 @@
   // Code Spell Checker
   "cSpell.language": "en-GB",
   "cSpell.enableFiletypes": [
-    "shellscript",
+    "json",
+    "jsonc",
+    "prisma",
     "properties",
-    "prisma"
+    "shellscript"
   ],
   "cSpell.userWords": [
     "screencast",
