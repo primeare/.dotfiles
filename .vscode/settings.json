@@ -33,11 +33,11 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
-  "editor.defaultFormatter": "VisualStudioExptTeam.vscodeintellicode",
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
     "source.organizeImports": true,
-    "source.sortImports": true
+    "source.sortImports": true,
+    "source.fixAll.eslint": true
   },
 
   // Window
@@ -51,8 +51,9 @@
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.closeOnFileDelete": false,
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
-  "workbench.tree.renderIndentGuides": "onHover",
   "workbench.editor.historyBasedLanguageDetection": true,
+  "workbench.editor.tabCloseButton": "off",
+  "workbench.tree.renderIndentGuides": "onHover",
 
   // Files
   "files.trimFinalNewlines": true,
@@ -64,6 +65,9 @@
   // Explorer
   "explorer.confirmDelete": true,
   "explorer.decorations.badges": true,
+
+  // Extensions
+  "extensions.experimental.useUtilityProcess": true,
 
   // Integrated Terminal
   "terminal.integrated.shellIntegration.enabled": true,
@@ -167,9 +171,6 @@
   "html.format.templating": true,
   "html.format.wrapLineLength": 80,
   "html.format.wrapAttributes": "auto",
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
 
   // Handlebars
   "[handlebars]": {
@@ -178,7 +179,6 @@
 
   // CSS
   "[css]": {
-    "editor.defaultFormatter": "vscode.css-language-features",
     "editor.suggest.insertMode": "replace"
   },
 
@@ -194,6 +194,11 @@
     "bem.elementSeparator": "__",
     "bem.modifierSeparator": "--",
     "output.inlineBreak": 1
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "html",
+    "vue-html": "html"
   },
 
   // Code Spell Checker
@@ -219,6 +224,12 @@
   "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+  ],
 
   // Visual Studio IntelliCode
   "vsintellicode.sql.completionsEnabled": true,
@@ -227,6 +238,9 @@
 
   // Screencast Mode
   "screencastMode.keyboardShortcutsFormat": "commandWithGroupAndKeys",
+
+  // vscode-icons extension
+  "vsicons.presets.hideExplorerArrows": true,
 
   // Prisma specific configurations
   "[prisma]": {
