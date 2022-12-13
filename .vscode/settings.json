@@ -195,11 +195,6 @@
     "bem.modifierSeparator": "--",
     "output.inlineBreak": 1
   },
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact",
-    "typescript": "html",
-    "vue-html": "html"
-  },
 
   // Code Spell Checker
   "cSpell.language": "en-GB",
