@@ -32,6 +32,6 @@
 - [Zoom](https://zoom.us)
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/primeare/.dotfiles.git ~/`
+1. Clone the repository: `git clone https://github.com/primeare/.dotfiles.git $HOME/.dotfiles`
 2. Install [Xcode](https://apps.apple.com/ua/app/xcode/id497799835?mt=12) from AppStore
 3. Run `$HOME/.dotfiles/setup` in the terminal

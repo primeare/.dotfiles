@@ -11,7 +11,7 @@ install_fira_code() {
 
   mkdir -p $ZIP_TMP_FOLDER_PATH
 
-  curl $ZIP_DOWNLOAD_URL \
+  curl "$ZIP_DOWNLOAD_URL" \
     --output $ZIP_TEMP_OUTPUT_PATH \
     --fail \
     --compressed \
@@ -20,8 +20,6 @@ install_fira_code() {
   unzip -ao -d $ZIP_TMP_FOLDER_PATH $ZIP_TEMP_OUTPUT_PATH
 
   cp -v "$ZIP_TMP_FOLDER_PATH/variable_ttf/FiraCode-VF.ttf" ~/Library/Fonts
-  cp -v "$ZIP_TMP_FOLDER_PATH/ttf/FiraCode-Retina.ttf" ~/Library/Fonts
-
   rm -rf $ZIP_TMP_FOLDER_PATH
 }
 
