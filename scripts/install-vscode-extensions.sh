@@ -28,6 +28,7 @@ code \
   --install-extension sonarsource.sonarlint-vscode \
   --install-extension streetsidesoftware.code-spell-checker \
   --install-extension tamasfe.even-better-toml \
+  --install-extension timonwong.shellcheck \
   --install-extension visualstudioexptteam.intellicode-api-usage-examples \
   --install-extension visualstudioexptteam.vscodeintellicode \
   --install-extension vscode-icons-team.vscode-icons \

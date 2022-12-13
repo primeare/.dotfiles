@@ -35,9 +35,8 @@
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
-    "source.organizeImports": true,
     "source.sortImports": true,
-    "source.fixAll.eslint": true
+    "source.addMissingImports": true
   },
 
   // Window
@@ -53,7 +52,7 @@
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
   "workbench.editor.historyBasedLanguageDetection": true,
   "workbench.editor.tabCloseButton": "off",
-  "workbench.tree.renderIndentGuides": "onHover",
+  "workbench.tree.renderIndentGuides": "always",
 
   // Files
   "files.trimFinalNewlines": true,
@@ -154,6 +153,8 @@
 
   // TypeScript
   "typescript.updateImportsOnFileMove.enabled": "prompt",
+  "typescript.suggest.autoImports": true,
+  "typescript.suggest.completeFunctionCalls": true,
   "typescript.preferences.quoteStyle": "single",
   "typescript.preferences.importModuleSpecifier": "shortest",
   "typescript.preferences.importModuleSpecifierEnding": "auto",
