@@ -19,7 +19,7 @@ curl $DMG_DOWNLOAD_URL \
   --location
 
 sudo hdiutil attach $DMG_OUTPUT_PATH
-sudo /Volumes/Docker/Docker.app/Contents/MacOS/install --accept-license --user=$(whoami)
+sudo /Volumes/Docker/Docker.app/Contents/MacOS/install --accept-license --user="$(whoami)"
 sudo hdiutil unmount "/Volumes/Docker"
 
 rm -rf $DMG_OUTPUT_PATH

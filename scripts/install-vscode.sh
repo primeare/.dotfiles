@@ -6,7 +6,7 @@ set -Eeuo pipefail
 VSCODE_DOWNLOAD_URL="https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal"
 FILE_TEMP_OUTPUT_PATH="./vscode.zip"
 
-curl $VSCODE_DOWNLOAD_URL \
+curl "$VSCODE_DOWNLOAD_URL" \
   --output $FILE_TEMP_OUTPUT_PATH \
   --fail \
   --compressed \
