@@ -1,0 +1,28 @@
+name: Workstation setup test
+run-name: ${{ github.workflow }} of commit ${{ github.sha }} on ${{ github.ref_name }} by ${{ github.actor }}
+
+on: [push]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  setup-and-test:
+    name: Setup workstation and test
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [macos-12, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup workstation
+        run: ./setup
+      - name: Test setup
+        run: ./test

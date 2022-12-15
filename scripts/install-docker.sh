@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # exit immediately if a pipeline exits with a non-zero status
-set -Eeuo pipefail
+set -Eeuxo pipefail
 
 OS_PLATFORM_ARCH=$(uname -m)
 DMG_OUTPUT_PATH="./docker.dmg"

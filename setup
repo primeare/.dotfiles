@@ -1,75 +1,67 @@
 #!/usr/bin/env bash
 
 # exit immediately if a pipeline exits with a non-zero status
-set -Eeuo pipefail
+set -Eeuxo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" &> /dev/null && pwd)"
 
-GIT_CONFIG_PATH="$SCRIPT_DIR/.gitconfig"
-GIT_CONFIG_MESSAGE_TEMPLATE_PATH="$SCRIPT_DIR/.gitmessage"
-NPM_CONFIG_PATH="$SCRIPT_DIR/.npmrc"
-FISH_CONFIG_PATH="$SCRIPT_DIR/.config/fish/config.fish"
-FISH_FUNCTIONS_PATH="$SCRIPT_DIR/.config/fish/functions"
-STARSHIP_CONFIG_PATH="$SCRIPT_DIR/.config/starship.toml"
-VSCODE_SETTINGS_PATH="$SCRIPT_DIR/.vscode/settings.json"
-
-# ask for superuser password once at the script startup
-sudo --validate
+# TODO: use "associative array" when Bash 4 comes to macOS
+LINKING_MAP=(
+  "$SCRIPT_DIR/.gitconfig:$HOME/.gitconfig"
+  "$SCRIPT_DIR/.gitmessage:$HOME/.gitmessage"
+  "$SCRIPT_DIR/.npmrc:$HOME/.npmrc"
+  "$SCRIPT_DIR/.config/fish/config.fish:$HOME/.config/fish/config.fish"
+  "$SCRIPT_DIR/.config/fish/functions:$HOME/.config/fish"
+  "$SCRIPT_DIR/.config/starship.toml:$HOME/.config/starship.toml"
+  "$SCRIPT_DIR/.vscode/settings.json:$HOME/Library/Application Support/Code/User/settings.json"
+)
 
 # print macOS version information
 sw_vers
 
-# accept XCode license
-sudo xcodebuild -license accept
+if [ "${CI:-false}" != "true" ]; then
+  # accept XCode license
+  sudo xcodebuild -license accept
 
-# install Apple's Command Line Tools
-# ignore "already installed" error if it appears
-xcode-select --install || true
+  # install Apple's Command Line Tools
+  # ignore "already installed" error if it appears
+  xcode-select --install || true
 
-# Install all appropriate software updates (OS, Safari, security etc.)
-softwareupdate --install --all --agree-to-license --verbose
+  # Install all appropriate software updates (OS, Safari, security etc.)
+  softwareupdate --install --all --agree-to-license --verbose
 
-# Install Rosetta 2 (Apple Silicon)
-softwareupdate --install-rosetta --agree-to-license --verbose
+  # Install Rosetta 2 (Apple Silicon)
+  softwareupdate --install-rosetta --agree-to-license --verbose
+fi
 
 # install Fish shell
-$SCRIPT_DIR/scripts/install-fish.sh
+"$SCRIPT_DIR/scripts/install-fish.sh"
 
 # install Starship prompt
-$SCRIPT_DIR/scripts/install-starship.sh
+"$SCRIPT_DIR/scripts/install-starship.sh"
 
 # install Node.js
-$SCRIPT_DIR/scripts/install-nodejs.sh
+"$SCRIPT_DIR/scripts/install-nodejs.sh"
 
 # install fonts
-$SCRIPT_DIR/scripts/install-fonts.sh
+"$SCRIPT_DIR/scripts/install-fonts.sh"
 
 # install Visual Studio Code
-$SCRIPT_DIR/scripts/install-vscode.sh
-
-# install Visual Studio Code extensions
-$SCRIPT_DIR/scripts/install-vscode-extensions.sh
+"$SCRIPT_DIR/scripts/install-vscode.sh"
 
 # install Docker Desktop
-$SCRIPT_DIR/scripts/install-docker.sh
+"$SCRIPT_DIR/scripts/install-docker.sh"
 
-# link user's Git configuration
-ln -f -s -v $GIT_CONFIG_PATH ~/.gitconfig
+# create directories if they don't exist
+mkdir -p -v "$HOME/.config/fish"
+mkdir -p -v "$HOME/Library/Application Support/Code/User"
 
-# link user's Git message template
-ln -f -s -v $GIT_CONFIG_MESSAGE_TEMPLATE_PATH ~/.gitmessage
+# create symbolic links to file and directories in the .dotfiles
+for LINK in "${LINKING_MAP[@]}"; do
+  SOURCE="${LINK%%:*}"
+  DESTINATION="${LINK##*:}"
+  ln -f -s -v "$SOURCE" "$DESTINATION"
+done
 
-# link NPM user settings
-ln -f -s -v $NPM_CONFIG_PATH ~/.npmrc
-
-# link Fish shell configuration
-ln -f -s -v $FISH_CONFIG_PATH ~/.config/fish/config.fish
-
-# link Fish shell user functions
-ln -f -s -v $FISH_FUNCTIONS_PATH ~/.config/fish
-
-# link Starship prompt configuration
-ln -f -s -v $STARSHIP_CONFIG_PATH ~/.config/starship.toml
-
-# link Visual Studio Code settings
-ln -f -s -v $VSCODE_SETTINGS_PATH ~/Library/Application\ Support/Code/User/settings.json
+# install Visual Studio Code extensions
+"$SCRIPT_DIR/scripts/install-vscode-extensions.sh"

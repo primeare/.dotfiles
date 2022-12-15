@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # exit immediately if a pipeline exits with a non-zero status
-set -Eeuo pipefail
+set -Eeuxo pipefail
 
-code \
+"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" \
   --install-extension aaron-bond.better-comments \
   --install-extension christian-kohler.npm-intellisense \
   --install-extension christian-kohler.path-intellisense \

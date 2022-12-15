@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # exit immediately if a pipeline exits with a non-zero status
-set -Eeuo pipefail
+set -Eeuxo pipefail
 
 VSCODE_DOWNLOAD_URL="https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal"
 FILE_TEMP_OUTPUT_PATH="./vscode.zip"
