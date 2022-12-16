@@ -1,33 +1,24 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 
-# exit immediately if a pipeline exits with a non-zero status
-set -Eeuxo pipefail
+function pass --argument-names message;
+  echo [(set_color green) OK (set_color normal)] $message
+end
 
-RED="\033[1;31m"
-GREEN="\033[1;32m"
-RESET="\033[0m"
-
-function pass () {
-  echo -e "[${GREEN}OK${RESET}] $1"
-}
-
-function fail () {
-  echo -e "[${RED}FAIL${RESET}] $1"
+function fail --argument-names message;
+  echo [(set_color red) FAIL (set_color normal)] $message
   exit 1
-}
+end
 
-INSTALLED_FILES_PATHS=(
-  "$HOME/.gitconfig"
-  "$HOME/.gitmessage"
-  "$HOME/.npmrc"
-  "$HOME/.config/fish/config.fish"
-  "$HOME/.config/starship.toml"
+set INSTALLED_FILES_PATHS \
+  "$HOME/.gitconfig" \
+  "$HOME/.gitmessage" \
+  "$HOME/.npmrc" \
+  "$HOME/.config/fish/config.fish" \
+  "$HOME/.config/starship.toml" \
   "$HOME/Library/Application Support/Code/User/settings.json"
-)
 
-INSTALLED_DIRECTORIES_PATHS=(
+set INSTALLED_DIRECTORIES_PATHS \
   "$HOME/.config/fish/functions"
-)
 
 whereis fish
 fish --version
@@ -40,30 +31,29 @@ code --version
 whereis docker
 docker --version
 
-VSCODE_INSTALLED_EXTENSIONS=()
-while IFS='' read -r line; do VSCODE_INSTALLED_EXTENSIONS+=("$line"); done < <(code --list-extensions)
-NUMBER_OF_VSCODE_EXTENSIONS_INSTALLED=${#VSCODE_INSTALLED_EXTENSIONS[@]}
+set VSCODE_INSTALLED_EXTENSIONS (code --list-extensions)
+set NUMBER_OF_VSCODE_EXTENSIONS_INSTALLED (count $VSCODE_INSTALLED_EXTENSIONS)
 
-for FILE in "${INSTALLED_FILES_PATHS[@]}"; do
+for FILE in $INSTALLED_FILES_PATHS;
   # if a symbolic link and a non-empty file
-  if test -L "$FILE" && test -s "$FILE"; then
+  if test -L "$FILE" && test -s "$FILE"
     pass "$FILE is a symbolic link file"
   else
     fail "$FILE is not a symbolic link file"
-  fi
-done
+  end
+end
 
-for DIRECTORY in "${INSTALLED_DIRECTORIES_PATHS[@]}"; do
+for DIRECTORY in $INSTALLED_DIRECTORIES_PATHS;
   # if a symbolic link and a directory
-  if test -L "$DIRECTORY" && test -d "$DIRECTORY"; then
+  if test -L "$DIRECTORY" && test -d "$DIRECTORY"
     pass "$DIRECTORY is a symbolic link directory"
   else
     fail "$DIRECTORY is not a symbolic link directory"
-  fi
-done
+  end
+end
 
-if [ "$NUMBER_OF_VSCODE_EXTENSIONS_INSTALLED" -gt 0 ]; then
+if test $NUMBER_OF_VSCODE_EXTENSIONS_INSTALLED -gt 0
   pass "$NUMBER_OF_VSCODE_EXTENSIONS_INSTALLED Visual Studio Code extensions installed successfully"
 else
   fail "Visual Studio Code extensions installation failed"
-fi
+end
