@@ -14,7 +14,7 @@ curl "$PKG_DOWNLOAD_URL" \
 
 sudo installer -store -pkg $PKG_OUTPUT_PATH -target "/" -verbose
 
-# change default user's shell to Fish
-sudo chsh -s /usr/local/bin/fish
+# change current user's shell to Fish
+chsh -s /usr/local/bin/fish
 
 rm -f $PKG_OUTPUT_PATH
