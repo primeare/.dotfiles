@@ -4,6 +4,11 @@
 set -Eeuxo pipefail
 
 function install_fira_code() {
+  if [[ -f "$HOME/Library/Fonts/FiraCode-VF.ttf" ]]; then
+    echo "Fira Code font is already installed"
+    exit 0
+  fi
+
   FIRA_CODE_LATEST_RELEASE=$(curl https://api.github.com/repos/tonsky/FiraCode/releases/latest --fail --compressed --location --silent)
   LATEST_FIRA_CODE_DOWNLOAD_URL=$(grep --extended-regexp --only-matching 'https:.+\.zip' <<< "$FIRA_CODE_LATEST_RELEASE")
   ZIP_TMP_FOLDER_PATH="./fira-code"

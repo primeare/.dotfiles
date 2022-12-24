@@ -3,6 +3,11 @@
 # exit immediately if a pipeline exits with a non-zero status
 set -Eeuxo pipefail
 
+if command -v node &> /dev/null; then
+  echo "Node.js is already installed"
+  exit 0
+fi
+
 LATEST_NODEJS_VERSION=$(curl "https://nodejs.org/dist/latest/" --fail --compressed --location --silent | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')
 PKG_DOWNLOAD_URL="https://nodejs.org/dist/latest/node-$LATEST_NODEJS_VERSION.pkg"
 PKG_OUTPUT_PATH="./node-latest.pkg"

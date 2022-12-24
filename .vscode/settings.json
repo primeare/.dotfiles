@@ -1,6 +1,7 @@
 {
   // Editor
   "editor.fontFamily": "Fira Code, monospace",
+  "editor.fontWeight": 400,
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
   "editor.lineHeight": 0,
@@ -148,6 +149,7 @@
   "javascript.inlayHints.parameterTypes.enabled": true,
   "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
   "javascript.inlayHints.variableTypes.enabled": true,
+  "javascript.referencesCodeLens.enabled": true,
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
@@ -166,6 +168,8 @@
   "typescript.inlayHints.parameterTypes.enabled": true,
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.implementationsCodeLens.enabled": true,
 
   // HTML
   "html.format.indentInnerHtml": true,
@@ -192,10 +196,17 @@
 
   // Emmet
   "emmet.showSuggestionsAsSnippets": true,
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
   "emmet.preferences": {
     "bem.elementSeparator": "__",
     "bem.modifierSeparator": "--",
-    "output.inlineBreak": 1
+    "output.inlineBreak": 1,
+    "css.autoInsertVendorPrefixes": true,
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact",
   },
 
   // Code Spell Checker

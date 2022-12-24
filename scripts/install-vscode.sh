@@ -3,6 +3,11 @@
 # exit immediately if a pipeline exits with a non-zero status
 set -Eeuxo pipefail
 
+if command -v code &> /dev/null; then
+  echo "Visual Studio Code is already installed"
+  exit 0
+fi
+
 VSCODE_DOWNLOAD_URL="https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal"
 FILE_TEMP_OUTPUT_PATH="./vscode.zip"
 
