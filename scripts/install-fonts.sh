@@ -9,8 +9,8 @@ function install_fira_code() {
     exit 0
   fi
 
-  FIRA_CODE_LATEST_RELEASE=$(curl https://api.github.com/repos/tonsky/FiraCode/releases/latest --fail --compressed --location --silent)
-  LATEST_FIRA_CODE_DOWNLOAD_URL=$(grep --extended-regexp --only-matching 'https:.+\.zip' <<< "$FIRA_CODE_LATEST_RELEASE")
+  FIRA_CODE_LATEST_RELEASE=$(curl --silent "https://api.github.com/repos/tonsky/FiraCode/releases/latest")
+  LATEST_FIRA_CODE_DOWNLOAD_URL=$(python3 -c "import sys, json; print(json.load(sys.stdin)['assets'][0]['browser_download_url'])" <<< "$FIRA_CODE_LATEST_RELEASE")
   ZIP_TMP_FOLDER_PATH="./fira-code"
   ZIP_TEMP_OUTPUT_PATH="$ZIP_TMP_FOLDER_PATH/font.zip"
 

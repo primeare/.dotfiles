@@ -30,11 +30,11 @@ if [[ "${CI:-false}" != "true" ]]; then
 
   # Install all available software updates (OS, Safari, security etc.)
   softwareupdate --install --all --agree-to-license --verbose
+fi
 
-  if [[ $ARCH == "arm64" ]]; then
-    # Install Rosetta 2 (only for Apple Silicon)
-    softwareupdate --install-rosetta --agree-to-license --verbose
-  fi
+if [[ $ARCH == "arm64" ]]; then
+  # Install Rosetta 2 (only for Apple Silicon)
+  softwareupdate --install-rosetta --agree-to-license --verbose
 fi
 
 # install Fish shell

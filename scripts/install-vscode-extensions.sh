@@ -4,7 +4,6 @@
 set -Eeuxo pipefail
 
 "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" \
-  --install-extension aaron-bond.better-comments \
   --install-extension christian-kohler.npm-intellisense \
   --install-extension christian-kohler.path-intellisense \
   --install-extension cschlosser.doxdocgen \
@@ -12,7 +11,6 @@ set -Eeuxo pipefail
   --install-extension dsznajder.es7-react-js-snippets \
   --install-extension eamodio.gitlens \
   --install-extension editorconfig.editorconfig \
-  --install-extension github.github-vscode-theme \
   --install-extension meganrogge.template-string-converter \
   --install-extension mikestead.dotenv \
   --install-extension mongodb.mongodb-vscode \

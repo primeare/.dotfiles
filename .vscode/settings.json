@@ -1,15 +1,19 @@
 {
   // Editor
   "editor.fontFamily": "Fira Code, monospace",
+  "editor.codeLensFontFamily": "Fira Code, monospace",
+  "editor.inlayHints.fontFamily": "Fira Code, monospace",
   "editor.fontWeight": 400,
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
+  "editor.inlayHints.fontSize": 10,
+  "editor.codeLensFontSize": 10,
   "editor.lineHeight": 0,
   "editor.tabSize": 2,
   "editor.rulers": [80],
   "editor.minimap.enabled": false,
   "editor.tabCompletion": "on",
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.smoothScrolling": true,
   "editor.suggest.localityBonus": true,
   "editor.suggest.preview": true,
@@ -23,9 +27,8 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.hover.sticky": true,
   "editor.guides.bracketPairs": true,
+  "editor.guides.indentation": true,
   "editor.inlayHints.enabled": "offUnlessPressed",
-  "editor.inlayHints.fontFamily": "Fira Code, monospace",
-  "editor.inlayHints.fontSize": 10,
   "editor.parameterHints.enabled": true,
   "editor.parameterHints.cycle": true,
   "editor.linkedEditing": true,
@@ -42,18 +45,21 @@
 
   // Window
   "window.zoomLevel": 0,
+  "window.newWindowDimensions": "maximized",
 
   // Workbench
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "Default Dark+ Experimental",
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "none",
   "workbench.sideBar.location": "right",
   "workbench.editor.highlightModifiedTabs": true,
-  "workbench.editor.closeOnFileDelete": false,
+  "workbench.editor.closeOnFileDelete": true,
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
   "workbench.editor.historyBasedLanguageDetection": true,
   "workbench.editor.tabCloseButton": "off",
   "workbench.tree.renderIndentGuides": "always",
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "workbench.commandPalette.preserveInput": true,
 
   // Files
   "files.trimFinalNewlines": true,
@@ -68,8 +74,10 @@
 
   // Extensions
   "extensions.experimental.useUtilityProcess": true,
+  "extensions.ignoreRecommendations": true,
 
   // Integrated Terminal
+  "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.shellIntegration.enabled": true,
   "terminal.integrated.shellIntegration.decorationsEnabled": "both",
   "terminal.integrated.fontFamily": "Fira Code, monospace",
@@ -96,6 +104,7 @@
 
   // Zen Mode
   "zenMode.hideTabs": false,
+  "zenMode.hideLineNumbers": false,
 
   // Telemetry
   "telemetry.telemetryLevel": "off",
@@ -111,6 +120,9 @@
   "diffEditor.codeLens": true,
   "diffEditor.maxComputationTime": 0,
   "diffEditor.ignoreTrimWhitespace": false,
+
+  // Keyboard
+  "keyboard.touchbar.enabled": false,
 
   // Git
   "git.mergeEditor": false,
@@ -155,6 +167,7 @@
   },
 
   // TypeScript
+  "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.updateImportsOnFileMove.enabled": "prompt",
   "typescript.suggest.autoImports": true,
   "typescript.suggest.completeFunctionCalls": true,
@@ -175,24 +188,26 @@
   "html.format.indentInnerHtml": true,
   "html.format.indentHandlebars": true,
   "html.format.templating": true,
-  "html.format.wrapLineLength": 80,
+  "html.format.wrapLineLength": 120,
   "html.format.wrapAttributes": "auto",
-
-  // Handlebars
-  "[handlebars]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-
-  // CSS
-  "[css]": {
-    "editor.suggest.insertMode": "replace"
-  },
 
   // Markdown
   "markdown.validate.enabled": true,
   "markdown.occurrencesHighlight.enabled": true,
   "markdown.validate.duplicateLinkDefinitions.enabled": "error",
   "markdown.validate.unusedLinkDefinitions.enabled": "warning",
+
+  // Problems
+  "problems.defaultViewMode": "table",
+
+  // GitHub
+  "github.gitProtocol": "ssh",
+
+  // Screencast Mode
+  "screencastMode.keyboardShortcutsFormat": "commandWithGroupAndKeys",
+
+  // Remote
+  "remote.tunnels.access.preventSleep": true,
 
   // Emmet
   "emmet.showSuggestionsAsSnippets": true,
@@ -209,46 +224,15 @@
     "typescript": "typescriptreact",
   },
 
-  // Code Spell Checker
-  "cSpell.language": "en-GB",
-  "cSpell.enableFiletypes": [
-    "json",
-    "jsonc",
-    "prisma",
-    "properties",
-    "shellscript"
-  ],
-  "cSpell.userWords": [
-    "screencast",
-    "sonarlint"
-  ],
+  // Handlebars
+  "[handlebars]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
 
-  // GitLens
-  "gitlens.currentLine.enabled": false,
-  "gitlens.hovers.currentLine.over": "line",
-  "gitlens.codeLens.enabled": false,
-
-  // ESLint
-  "eslint.alwaysShowStatus": true,
-  "eslint.format.enable": true,
-  "eslint.lintTask.enable": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-  ],
-
-  // Visual Studio IntelliCode
-  "vsintellicode.sql.completionsEnabled": true,
-  "vsintellicode.typescript.completionsEnabled": true,
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-
-  // Screencast Mode
-  "screencastMode.keyboardShortcutsFormat": "commandWithGroupAndKeys",
-
-  // vscode-icons extension
-  "vsicons.presets.hideExplorerArrows": true,
+  // CSS & SCSS
+  "[css]": {
+    "editor.suggest.insertMode": "replace"
+  },
 
   // Prisma specific configurations
   "[prisma]": {
@@ -262,53 +246,61 @@
     "editor.formatOnPaste": false
   },
 
-  // Better Comments
-  "better-comments.multilineComments": true,
-  "better-comments.tags": [
-    {
-      "tag": "todo",
-      "color": "#FF8C00",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": true,
-      "italic": false
-    },
-    {
-      "tag": "bug",
-      "color": "#FF2D00",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": true,
-      "italic": false
-    },
-    {
-      "tag": "?",
-      "color": "#3498DB",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    },
-    {
-      "tag": "//",
-      "color": "#474747",
-      "strikethrough": true,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    },
-    {
-      "tag": "*",
-      "color": "#98C379",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    }
-  ]
+  // CodeTour (Extension)
+  "codetour.recordMode": "pattern",
+
+  // vscode-icons (Extension)
+  "vsicons.presets.hideExplorerArrows": true,
+
+  // Code Spell Checker (Extension)
+  "cSpell.language": "en-GB",
+  "cSpell.enableFiletypes": [
+    "json",
+    "jsonc",
+    "prisma",
+    "properties",
+    "shellscript"
+  ],
+  "cSpell.userWords": [
+    "screencast",
+    "sonarlint"
+  ],
+
+  // GitLens (Extension)
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+
+  // ESLint (Extension)
+  "eslint.experimental.useFlatConfig": true,
+  "eslint.packageManager": "npm",
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.useESLintClass": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+  ],
+
+  // Visual Studio IntelliCode (Extension)
+  "vsintellicode.sql.completionsEnabled": true,
+  "vsintellicode.typescript.completionsEnabled": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+  // Template String Converter (Extension)
+  "template-string-converter.addBracketsToProps": true,
+  "template-string-converter.autoRemoveTemplateString": true,
+  "template-string-converter.convertOutermostQuotes": true,
+
+  // Doxygen Documentation Generator (Extension)
+  "doxdocgen.generic.useGitUserName": true,
+  "doxdocgen.generic.useGitUserEmail": true,
+
+  // NPM IntelliSense (Extension)
+  "npm-intellisense.scanDevDependencies": true,
+
+  // Path IntelliSense (Extension)
+  "path-intellisense.showHiddenFiles": true
 }
