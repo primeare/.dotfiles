@@ -22,14 +22,21 @@ set INSTALLED_DIRECTORIES_PATHS \
 
 whereis fish
 fish --version
+
 whereis starship
 starship --version
+
 whereis node
 node --version
+
 whereis code
 code --version
+
 whereis docker
 docker --version
+
+whereis aws
+aws --version
 
 set VSCODE_INSTALLED_EXTENSIONS (code --list-extensions)
 set NUMBER_OF_VSCODE_EXTENSIONS_INSTALLED (count $VSCODE_INSTALLED_EXTENSIONS)

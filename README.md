@@ -9,6 +9,7 @@
 - [Node.js](https://nodejs.org)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - [Visual Studio Code](https://code.visualstudio.com)
+- [AWS CLI](https://aws.amazon.com/cli/)
 
 ### Manual installation
 - [Xcode](https://developer.apple.com/xcode)
@@ -30,6 +31,7 @@
 - [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve)
 - [Xmind](https://xmind.app)
 - [Zoom](https://zoom.us)
+- [Notion](https://www.notion.so/desktop)
 
 ## Installation
 1. Clone the repository: `git clone https://github.com/primeare/.dotfiles.git $HOME/.dotfiles`

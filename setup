@@ -55,6 +55,9 @@ fi
 # install Docker Desktop
 "$SCRIPT_DIR/scripts/install-docker.sh"
 
+# install AWS CLI
+"$SCRIPT_DIR/scripts/install-aws-cli.sh"
+
 # create directories if they don't exist
 mkdir -p -v "$HOME/.config/fish"
 mkdir -p -v "$HOME/Library/Application Support/Code/User"
