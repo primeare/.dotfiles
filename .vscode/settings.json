@@ -34,6 +34,7 @@
   "editor.linkedEditing": true,
   "editor.stickyScroll.enabled": true,
   "editor.stickyScroll.maxLineCount": 5,
+  "editor.defaultColorDecorators": true,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
@@ -45,10 +46,12 @@
 
   // Window
   "window.zoomLevel": 0,
+  "window.nativeTabs": true,
   "window.newWindowDimensions": "maximized",
+  "window.confirmBeforeClose": "keyboardOnly",
 
   // Workbench
-  "workbench.colorTheme": "Default Dark+ Experimental",
+  "workbench.colorTheme": "Default Dark Modern",
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "none",
   "workbench.sideBar.location": "right",
@@ -73,7 +76,7 @@
   "explorer.decorations.badges": true,
 
   // Extensions
-  "extensions.experimental.useUtilityProcess": true,
+  "extensions.closeExtensionDetailsOnViewChange": true,
   "extensions.ignoreRecommendations": true,
 
   // Integrated Terminal
@@ -93,6 +96,9 @@
   "terminal.integrated.autoReplies": {
     "Terminate batch job (Y/N)": "Y\r"
   },
+
+  // Keyboard
+  "keyboard.touchbar.enabled": false,
 
   // Audio Cues
   "audioCues.onDebugBreak": "on",
@@ -120,9 +126,11 @@
   "diffEditor.codeLens": true,
   "diffEditor.maxComputationTime": 0,
   "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.diffAlgorithm": "advanced",
 
-  // Keyboard
-  "keyboard.touchbar.enabled": false,
+  // Merge Editor
+  "mergeEditor.diffAlgorithm": "advanced",
+  "mergeEditor.showDeletionMarkers": true,
 
   // Git
   "git.mergeEditor": false,
@@ -139,10 +147,6 @@
     "editor.rulers": [50, 72],
     "workbench.editor.restoreViewState": false
   },
-
-  // Merge Editor
-  "mergeEditor.diffAlgorithm": "experimental",
-  "mergeEditor.showDeletionMarkers": true,
 
   // JavaScript
   "js/ts.implicitProjectConfig.checkJs": true,
