@@ -7,7 +7,7 @@ function fish_greeting
     echo Good morning, $USER!
   else if test $current_hour -ge 12 -a $current_hour -lt 18
     echo Good afternoon, $USER!
-  else if test $current_hour -ge 18 -a $hour -lt 22
+  else if test $current_hour -ge 18 -a $current_hour -lt 22
     echo Good evening, $USER!
   else
     echo Good night, $USER!
