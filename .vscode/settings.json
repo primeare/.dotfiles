@@ -11,21 +11,26 @@
   "editor.lineHeight": 0,
   "editor.tabSize": 2,
   "editor.rulers": [80],
+  "editor.detectIndentation": true,
   "editor.minimap.enabled": false,
+  "editor.lineNumbers": "on",
   "editor.tabCompletion": "on",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.smoothScrolling": true,
+  "editor.folding": false,
+  "editor.find.addExtraSpaceOnTop": false,
+  "editor.renderLineHighlight": "all",
   "editor.suggest.localityBonus": true,
   "editor.suggest.preview": true,
   "editor.suggestSelection": "first",
-  "editor.snippetSuggestions": "top",
+  "editor.snippetSuggestions": "inline",
   "editor.accessibilitySupport": "off",
   "editor.unicodeHighlight.ambiguousCharacters": true,
   "editor.unicodeHighlight.invisibleCharacters": true,
   "editor.unicodeHighlight.nonBasicASCII": true,
   "editor.unicodeHighlight.includeComments": true,
-  "editor.bracketPairColorization.enabled": true,
   "editor.hover.sticky": true,
+  "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": true,
   "editor.guides.indentation": true,
   "editor.inlayHints.enabled": "offUnlessPressed",
@@ -40,6 +45,7 @@
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
+    "source.fixAll.eslint": true,
     "source.sortImports": true,
     "source.addMissingImports": true
   },
@@ -47,6 +53,7 @@
   // Window
   "window.zoomLevel": 0,
   "window.nativeTabs": true,
+  "window.titleBarStyle": "native",
   "window.newWindowDimensions": "maximized",
   "window.confirmBeforeClose": "keyboardOnly",
 
@@ -63,6 +70,9 @@
   "workbench.tree.renderIndentGuides": "always",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.commandPalette.preserveInput": true,
+  "workbench.list.smoothScrolling": true,
+  "workbench.settings.editor": "json",
+  "workbench.settings.useSplitJSON": true,
 
   // Files
   "files.trimFinalNewlines": true,
@@ -74,20 +84,37 @@
   // Explorer
   "explorer.confirmDelete": true,
   "explorer.decorations.badges": true,
+  "explorer.incrementalNaming": "smart",
 
-  // Extensions
-  "extensions.closeExtensionDetailsOnViewChange": true,
-  "extensions.ignoreRecommendations": true,
+  // Search
+  "search.showLineNumbers": true,
+  "search.smartCase": true,
+  "search.exclude": {
+    "**/.git": true,
+    "**/.yarn": true,
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/package-lock.json": true,
+    "**/yarn.lock": true,
+    "**/*.code-search": true
+  },
 
-  // Integrated Terminal
+  // Breadcrumbs
+  "breadcrumbs.enabled": true,
+  "breadcrumbs.symbolPath": "off",
+
+  // Terminal
+  "terminal.explorerKind": "external",
   "terminal.integrated.defaultProfile.osx": "fish",
-  "terminal.integrated.shellIntegration.enabled": true,
+  "terminal.integrated.shellIntegration.enabled": false,
   "terminal.integrated.shellIntegration.decorationsEnabled": "both",
   "terminal.integrated.fontFamily": "Fira Code, monospace",
-  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "terminal.integrated.confirmOnExit": "hasChildProcesses",
   "terminal.integrated.smoothScrolling": true,
-  "terminal.integrated.scrollback": 5000,
+  "terminal.integrated.scrollback": 100000,
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.gpuAcceleration": "on",
@@ -107,6 +134,7 @@
   "debug.inlineValues": "on",
   "debug.showBreakpointsInOverviewRuler": true,
   "debug.confirmOnExit": "always",
+  "debug.openExplorerOnEnd": true,
 
   // Zen Mode
   "zenMode.hideTabs": false,
@@ -116,11 +144,21 @@
   "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
   "sonarlint.disableTelemetry": true,
+  "gitlens.telemetry.enabled": false,
+  "mdb.sendTelemetry": false,
 
-  // Breadcrumbs
-  "breadcrumbs.enabled": true,
-  "breadcrumbs.icons": true,
-  "breadcrumbs.symbolPath": "off",
+  // Extensions
+  "extensions.closeExtensionDetailsOnViewChange": true,
+  "extensions.ignoreRecommendations": true,
+
+  // Problems
+  "problems.defaultViewMode": "table",
+
+  // Screencast Mode
+  "screencastMode.keyboardShortcutsFormat": "commandWithGroupAndKeys",
+
+  // Remote
+  "remote.tunnels.access.preventSleep": true,
 
   // Diff Editor
   "diffEditor.codeLens": true,
@@ -132,7 +170,8 @@
   "mergeEditor.diffAlgorithm": "advanced",
   "mergeEditor.showDeletionMarkers": true,
 
-  // Git
+  // Git & SCM
+  "git.enableStatusBarSync": false,
   "git.mergeEditor": false,
   "git.untrackedChanges": "separate",
   "git.allowNoVerifyCommit": false,
@@ -147,6 +186,9 @@
     "editor.rulers": [50, 72],
     "workbench.editor.restoreViewState": false
   },
+
+  // GitHub
+  "github.gitProtocol": "ssh",
 
   // JavaScript
   "js/ts.implicitProjectConfig.checkJs": true,
@@ -188,30 +230,13 @@
   "typescript.referencesCodeLens.enabled": true,
   "typescript.implementationsCodeLens.enabled": true,
 
-  // HTML
+  // HTML & Handlebars
+  "html.format.unformatted": null,
   "html.format.indentInnerHtml": true,
-  "html.format.indentHandlebars": true,
   "html.format.templating": true,
+  "html.format.indentHandlebars": true,
   "html.format.wrapLineLength": 120,
   "html.format.wrapAttributes": "auto",
-
-  // Markdown
-  "markdown.validate.enabled": true,
-  "markdown.occurrencesHighlight.enabled": true,
-  "markdown.validate.duplicateLinkDefinitions.enabled": "error",
-  "markdown.validate.unusedLinkDefinitions.enabled": "warning",
-
-  // Problems
-  "problems.defaultViewMode": "table",
-
-  // GitHub
-  "github.gitProtocol": "ssh",
-
-  // Screencast Mode
-  "screencastMode.keyboardShortcutsFormat": "commandWithGroupAndKeys",
-
-  // Remote
-  "remote.tunnels.access.preventSleep": true,
 
   // Emmet
   "emmet.showSuggestionsAsSnippets": true,
@@ -228,15 +253,44 @@
     "typescript": "typescriptreact",
   },
 
-  // Handlebars
-  "[handlebars]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-
-  // CSS & SCSS
+  // CSS
+  "css.format.braceStyle": "collapse",
+  "css.format.newlineBetweenSelectors": true,
+  "css.format.newlineBetweenRules": true,
+  "css.format.spaceAroundSelectorSeparator": true,
+  "css.lint.boxModel": "ignore",
+  "css.lint.argumentsInColorFunction": "error",
+  "css.lint.vendorPrefix": "warning",
+  "css.lint.compatibleVendorPrefixes": "warning",
+  "css.lint.duplicateProperties": "error",
+  "css.lint.emptyRules": "error",
+  "css.lint.float": "error",
+  "css.lint.fontFaceProperties": "error",
+  "css.lint.hexColorLength": "error",
+  "css.lint.idSelector": "warning",
+  "css.lint.ieHack": "warning",
+  "css.lint.important": "warning",
+  "css.lint.importStatement": "warning",
+  "css.lint.propertyIgnoredDueToDisplay": "warning",
+  "css.lint.universalSelector": "warning",
+  "css.lint.unknownAtRules": "warning",
+  "css.lint.unknownProperties": "warning",
+  "css.lint.unknownVendorSpecificProperties": "warning",
+  "css.lint.zeroUnits": "warning",
   "[css]": {
     "editor.suggest.insertMode": "replace"
   },
+
+  // SCSS
+  "[scss]": {
+    "editor.suggest.insertMode": "replace"
+  },
+
+  // Markdown
+  "markdown.validate.enabled": true,
+  "markdown.occurrencesHighlight.enabled": true,
+  "markdown.validate.duplicateLinkDefinitions.enabled": "error",
+  "markdown.validate.unusedLinkDefinitions.enabled": "warning",
 
   // Prisma specific configurations
   "[prisma]": {
@@ -250,6 +304,21 @@
     "editor.formatOnPaste": false
   },
 
+  // Terraform
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSaveMode": "file"
+  },
+
+  // Terraform Variables
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSaveMode": "file"
+  },
+
+  /* Extensions
+  ------------------------------------------------------------------------- */
+
   // CodeTour (Extension)
   "codetour.recordMode": "pattern",
 
@@ -257,7 +326,8 @@
   "vsicons.presets.hideExplorerArrows": true,
 
   // Code Spell Checker (Extension)
-  "cSpell.language": "en-GB",
+  "cSpell.language": "en-GB,uk",
+  "cSpell.showStatus": false,
   "cSpell.enableFiletypes": [
     "json",
     "jsonc",
@@ -289,8 +359,7 @@
   ],
 
   // Visual Studio IntelliCode (Extension)
-  "vsintellicode.sql.completionsEnabled": true,
-  "vsintellicode.typescript.completionsEnabled": true,
+  "vsintellicode.features.python.deepLearning": "enabled",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
   // Template String Converter (Extension)
@@ -306,5 +375,17 @@
   "npm-intellisense.scanDevDependencies": true,
 
   // Path IntelliSense (Extension)
-  "path-intellisense.showHiddenFiles": true
+  "path-intellisense.showHiddenFiles": true,
+
+  // Markdown All in One
+  "markdown.extension.preview.autoShowPreviewToSide": true,
+  "markdown.extension.orderedList.autoRenumber": true,
+  "markdown.extension.toc.levels": "2..6",
+  "markdown.extension.toc.slugifyMode": "github",
+  "markdown.extension.toc.updateOnSave": true,
+  "markdown.extension.toc.omittedFromToc": {
+    "README.md": [
+      "## Table of Contents"
+    ]
+  }
 }
