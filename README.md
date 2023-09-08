@@ -1,5 +1,7 @@
 # Automated Workstation and Environment configuration
 
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=primeare_.dotfiles)](https://sonarcloud.io/summary/new_code?id=primeare_.dotfiles)
+
 ## List of Software
 
 ### Automatic installation
