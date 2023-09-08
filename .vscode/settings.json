@@ -23,7 +23,7 @@
   "editor.suggest.localityBonus": true,
   "editor.suggest.preview": true,
   "editor.suggestSelection": "first",
-  "editor.snippetSuggestions": "inline",
+  "editor.snippetSuggestions": "top",
   "editor.accessibilitySupport": "off",
   "editor.unicodeHighlight.ambiguousCharacters": true,
   "editor.unicodeHighlight.invisibleCharacters": true,
@@ -38,9 +38,12 @@
   "editor.parameterHints.cycle": true,
   "editor.linkedEditing": true,
   "editor.stickyScroll.enabled": true,
+  "editor.stickyScroll.scrollWithEditor": true,
   "editor.stickyScroll.maxLineCount": 5,
   "editor.defaultColorDecorators": true,
-  "editor.formatOnSave": true,
+  "editor.experimental.asyncTokenization": true,
+  "editor.defaultFormatter": null,
+  "editor.formatOnSave": false,
   "editor.formatOnPaste": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.codeActionsOnSave": {
@@ -67,12 +70,14 @@
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
   "workbench.editor.historyBasedLanguageDetection": true,
   "workbench.editor.tabCloseButton": "off",
+  "workbench.editor.splitInGroupLayout": "horizontal",
   "workbench.tree.renderIndentGuides": "always",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.commandPalette.preserveInput": true,
   "workbench.list.smoothScrolling": true,
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
+  "workbench.editor.preventPinnedEditorClose": "keyboardAndMouse",
 
   // Files
   "files.trimFinalNewlines": true,
@@ -80,9 +85,11 @@
   "files.insertFinalNewline": true,
   "files.eol": "\n",
   "files.defaultLanguage": "${activeEditorLanguage}",
+  "files.readonlyFromPermissions": true,
 
   // Explorer
   "explorer.confirmDelete": true,
+  "explorer.confirmDragAndDrop": true,
   "explorer.decorations.badges": true,
   "explorer.incrementalNaming": "smart",
 
@@ -103,13 +110,18 @@
   "breadcrumbs.enabled": true,
   "breadcrumbs.symbolPath": "off",
 
+  // Accessibility
+  "accessibility.dimUnfocused.enabled": true,
+  "accessibility.dimUnfocused.opacity": 0.75,
+
   // Terminal
   "terminal.explorerKind": "external",
   "terminal.integrated.defaultProfile.osx": "fish",
-  "terminal.integrated.shellIntegration.enabled": false,
+  "terminal.integrated.shellIntegration.enabled": true,
   "terminal.integrated.shellIntegration.decorationsEnabled": "both",
   "terminal.integrated.fontFamily": "Fira Code, monospace",
   "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorStyleInactive": "none",
   "terminal.integrated.enablePersistentSessions": false,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
@@ -120,6 +132,7 @@
   "terminal.integrated.gpuAcceleration": "on",
   "terminal.integrated.customGlyphs": true,
   "terminal.integrated.enableBell": true,
+  "terminal.integrated.hideOnStartup": "whenEmpty",
   "terminal.integrated.autoReplies": {
     "Terminate batch job (Y/N)": "Y\r"
   },
@@ -155,7 +168,13 @@
   "problems.defaultViewMode": "table",
 
   // Screencast Mode
-  "screencastMode.keyboardShortcutsFormat": "commandWithGroupAndKeys",
+  "screencastMode.fontSize": 56,
+  "screencastMode.keyboardOptions": {
+    "showKeys": true,
+    "showCommands": true,
+    "showCommandGroups": true,
+    "showSingleEditorCursorMoves": true
+  },
 
   // Remote
   "remote.tunnels.access.preventSleep": true,
@@ -165,12 +184,16 @@
   "diffEditor.maxComputationTime": 0,
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.diffAlgorithm": "advanced",
+  "diffEditor.useInlineViewWhenSpaceIsLimited": false,
+  "diffEditor.experimental.useVersion2": true,
+  "diffEditor.experimental.showMoves": true,
 
   // Merge Editor
   "mergeEditor.diffAlgorithm": "advanced",
   "mergeEditor.showDeletionMarkers": true,
 
   // Git & SCM
+  "git.defaultBranchName": "main",
   "git.enableStatusBarSync": false,
   "git.mergeEditor": false,
   "git.untrackedChanges": "separate",
@@ -208,6 +231,7 @@
   "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
   "javascript.inlayHints.variableTypes.enabled": true,
   "javascript.referencesCodeLens.enabled": true,
+  "javascript.preferences.renameMatchingJsxTags": true,
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
@@ -229,6 +253,7 @@
   "typescript.inlayHints.variableTypes.enabled": true,
   "typescript.referencesCodeLens.enabled": true,
   "typescript.implementationsCodeLens.enabled": true,
+  "typescript.preferences.renameMatchingJsxTags": true,
 
   // HTML & Handlebars
   "html.format.unformatted": null,
@@ -246,18 +271,22 @@
     "bem.elementSeparator": "__",
     "bem.modifierSeparator": "--",
     "output.inlineBreak": 1,
-    "css.autoInsertVendorPrefixes": true,
+    "css.autoInsertVendorPrefixes": true
   },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "typescript": "typescriptreact",
+    "handlebars": "html"
   },
 
   // CSS
+  "css.validate": true,
+  "css.format.enable": true,
   "css.format.braceStyle": "collapse",
   "css.format.newlineBetweenSelectors": true,
   "css.format.newlineBetweenRules": true,
   "css.format.spaceAroundSelectorSeparator": true,
+  "css.format.preserveNewLines": true,
   "css.lint.boxModel": "ignore",
   "css.lint.argumentsInColorFunction": "error",
   "css.lint.vendorPrefix": "warning",
@@ -267,7 +296,7 @@
   "css.lint.float": "error",
   "css.lint.fontFaceProperties": "error",
   "css.lint.hexColorLength": "error",
-  "css.lint.idSelector": "warning",
+  "css.lint.idSelector": "ignore",
   "css.lint.ieHack": "warning",
   "css.lint.important": "warning",
   "css.lint.importStatement": "warning",
@@ -291,6 +320,7 @@
   "markdown.occurrencesHighlight.enabled": true,
   "markdown.validate.duplicateLinkDefinitions.enabled": "error",
   "markdown.validate.unusedLinkDefinitions.enabled": "warning",
+  "markdown.editor.pasteUrlAsFormattedLink.enabled": "smart",
 
   // Prisma specific configurations
   "[prisma]": {
@@ -299,7 +329,6 @@
 
   // JSON with comments specific configurations
   "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features",
     "editor.formatOnSave": false,
     "editor.formatOnPaste": false
   },
@@ -377,7 +406,7 @@
   // Path IntelliSense (Extension)
   "path-intellisense.showHiddenFiles": true,
 
-  // Markdown All in One
+  // Markdown All in One (Extension)
   "markdown.extension.preview.autoShowPreviewToSide": true,
   "markdown.extension.orderedList.autoRenumber": true,
   "markdown.extension.toc.levels": "2..6",
@@ -387,5 +416,9 @@
     "README.md": [
       "## Table of Contents"
     ]
-  }
+  },
+
+  // Figma (Extension)
+  "figma.autocompleteProperties": true,
+  "figma.autocompleteBlocks": true
 }

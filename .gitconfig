@@ -4,6 +4,7 @@
 	defaultBranch = main
 [push]
 	default = current
+	followTags = true
 [fetch]
 	prune = true
 [pull]
@@ -27,7 +28,6 @@
 [credential]
 	helper = osxkeychain
 [core]
-	# editor = nano -w
 	editor = code --wait
 [color]
 	ui = auto

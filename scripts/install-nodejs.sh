@@ -14,6 +14,8 @@ PKG_OUTPUT_PATH="./node-latest.pkg"
 NPM_GLOBAL_PACKAGE_DIR_PATH="$HOME/.npm-packages/bin"
 NODEJS_SHIMS_DIR_PATH="$HOME/.node-shims"
 
+echo "Installing Node.js $LATEST_NODEJS_VERSION"
+
 curl "$PKG_DOWNLOAD_URL" \
     --output $PKG_OUTPUT_PATH \
     --fail \

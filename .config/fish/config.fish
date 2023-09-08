@@ -19,4 +19,5 @@ set -gx EDITOR code --wait --new-window
 set -gx VISUAL code --wait --new-window
 
 # manual Visual Studio Code shell integration
-string match -q "$TERM_PROGRAM" "vscode" and . (code --locate-shell-integration-path fish)
+string match -q "$TERM_PROGRAM" "vscode"
+and . (code --locate-shell-integration-path fish)
