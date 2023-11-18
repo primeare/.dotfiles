@@ -20,6 +20,7 @@
   "editor.folding": false,
   "editor.find.addExtraSpaceOnTop": false,
   "editor.renderLineHighlight": "all",
+  "editor.multiDocumentOccurrencesHighlight": true,
   "editor.suggest.localityBonus": true,
   "editor.suggest.preview": true,
   "editor.suggestSelection": "first",
@@ -46,8 +47,9 @@
   "editor.formatOnSave": false,
   "editor.formatOnPaste": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.codeActionWidget.includeNearbyQuickFixes": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
+    "source.fixAll": false,
     "source.fixAll.eslint": true,
     "source.sortImports": true,
     "source.addMissingImports": true
@@ -59,25 +61,35 @@
   "window.titleBarStyle": "native",
   "window.newWindowDimensions": "maximized",
   "window.confirmBeforeClose": "keyboardOnly",
+  "window.autoDetectColorScheme": true,
+  "window.dialogStyle": "custom",
 
   // Workbench
   "workbench.colorTheme": "Default Dark Modern",
   "workbench.iconTheme": "vscode-icons",
+  "workbench.productIconTheme": "Default",
   "workbench.startupEditor": "none",
   "workbench.sideBar.location": "right",
+  // "workbench.fontAliasing": "antialiased",
+  "workbench.editor.empty.hint": "hidden",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.closeOnFileDelete": true,
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
   "workbench.editor.historyBasedLanguageDetection": true,
   "workbench.editor.tabCloseButton": "off",
   "workbench.editor.splitInGroupLayout": "horizontal",
+  "workbench.editor.preventPinnedEditorClose": "keyboardAndMouse",
+  "workbench.editor.pinnedTabsOnSeparateRow": true,
+  "workbench.editor.doubleClickTabToToggleEditorGroupSizes": "maximize",
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.editor.limit.value": 7,
   "workbench.tree.renderIndentGuides": "always",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.commandPalette.preserveInput": true,
   "workbench.list.smoothScrolling": true,
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
-  "workbench.editor.preventPinnedEditorClose": "keyboardAndMouse",
 
   // Files
   "files.trimFinalNewlines": true,
@@ -92,6 +104,18 @@
   "explorer.confirmDragAndDrop": true,
   "explorer.decorations.badges": true,
   "explorer.incrementalNaming": "smart",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.js": "${capture}.js.map, $(capture).*.js, $(capture)_*.js, ${capture}.d.ts",
+    "*.mjs": "$(capture).mjs.map, $(capture).*.mjs, $(capture)_*.mjs",
+    "*.cjs": "$(capture).cjs.map, $(capture).*.cjs, $(capture)_*.cjs",
+    "*.css": "$(capture).css.map, $(capture).*.css",
+    "package.json": "package-lock.json, npm-shrinkwrap.json, .npm*",
+    ".env": "*.env, .env.*",
+    ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
+    "Dockerfile": "*.dockerfile, .devcontainer.*, .dockerignore, docker-compose.*, compose.*, dockerfile*",
+  },
 
   // Search
   "search.showLineNumbers": true,
@@ -145,12 +169,13 @@
 
   // Debug
   "debug.inlineValues": "on",
+  "debug.toolBarLocation": "floating",
   "debug.showBreakpointsInOverviewRuler": true,
   "debug.confirmOnExit": "always",
   "debug.openExplorerOnEnd": true,
 
   // Zen Mode
-  "zenMode.hideTabs": false,
+  "zenMode.showTabs": "multiple",
   "zenMode.hideLineNumbers": false,
 
   // Telemetry
@@ -185,7 +210,6 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.diffAlgorithm": "advanced",
   "diffEditor.useInlineViewWhenSpaceIsLimited": false,
-  "diffEditor.experimental.useVersion2": true,
   "diffEditor.experimental.showMoves": true,
 
   // Merge Editor
@@ -376,7 +400,6 @@
 
   // ESLint (Extension)
   "eslint.experimental.useFlatConfig": true,
-  "eslint.packageManager": "npm",
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "eslint.useESLintClass": true,
