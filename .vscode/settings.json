@@ -20,7 +20,7 @@
   "editor.folding": false,
   "editor.find.addExtraSpaceOnTop": false,
   "editor.renderLineHighlight": "all",
-  "editor.multiDocumentOccurrencesHighlight": true,
+  "editor.occurrencesHighlight": "multiFile",
   "editor.suggest.localityBonus": true,
   "editor.suggest.preview": true,
   "editor.suggestSelection": "first",
@@ -49,10 +49,10 @@
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.codeActionWidget.includeNearbyQuickFixes": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": false,
-    "source.fixAll.eslint": true,
-    "source.sortImports": true,
-    "source.addMissingImports": true
+    "source.fixAll": "never",
+    "source.fixAll.eslint": "explicit",
+    "source.sortImports": "explicit",
+    "source.addMissingImports": "explicit"
   },
 
   // Window
@@ -76,7 +76,7 @@
   "workbench.editor.closeOnFileDelete": true,
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
   "workbench.editor.historyBasedLanguageDetection": true,
-  "workbench.editor.tabCloseButton": "off",
+  "workbench.editor.tabActionCloseVisibility": false,
   "workbench.editor.splitInGroupLayout": "horizontal",
   "workbench.editor.preventPinnedEditorClose": "keyboardAndMouse",
   "workbench.editor.pinnedTabsOnSeparateRow": true,
@@ -84,6 +84,9 @@
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.perEditorGroup": true,
   "workbench.editor.limit.value": 7,
+  "workbench.editor.dragToOpenWindow": false,
+  "workbench.tree.enableStickyScroll": true,
+  "workbench.tree.stickyScrollMaxItemCount": 7,
   "workbench.tree.renderIndentGuides": "always",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.commandPalette.preserveInput": true,
@@ -141,8 +144,9 @@
   // Terminal
   "terminal.explorerKind": "external",
   "terminal.integrated.defaultProfile.osx": "fish",
-  "terminal.integrated.shellIntegration.enabled": true,
+  "terminal.integrated.shellIntegration.enabled": false,
   "terminal.integrated.shellIntegration.decorationsEnabled": "both",
+  "terminal.integrated.shellIntegration.suggestEnabled": true,
   "terminal.integrated.fontFamily": "Fira Code, monospace",
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorStyleInactive": "none",
@@ -157,6 +161,7 @@
   "terminal.integrated.customGlyphs": true,
   "terminal.integrated.enableBell": true,
   "terminal.integrated.hideOnStartup": "whenEmpty",
+  "terminal.integrated.stickyScroll.enabled": true,
   "terminal.integrated.autoReplies": {
     "Terminate batch job (Y/N)": "Y\r"
   },
@@ -166,6 +171,8 @@
 
   // Audio Cues
   "audioCues.onDebugBreak": "on",
+  "audioCues.terminalCommandFailed": "on",
+  "audioCues.terminalQuickFix": "on",
 
   // Debug
   "debug.inlineValues": "on",
@@ -211,6 +218,7 @@
   "diffEditor.diffAlgorithm": "advanced",
   "diffEditor.useInlineViewWhenSpaceIsLimited": false,
   "diffEditor.experimental.showMoves": true,
+  "multiDiffEditor.experimental.enabled": true,
 
   // Merge Editor
   "mergeEditor.diffAlgorithm": "advanced",
@@ -248,6 +256,7 @@
   "javascript.preferences.quoteStyle": "single",
   "javascript.preferences.importModuleSpecifier": "shortest",
   "javascript.preferences.importModuleSpecifierEnding": "js",
+  "javascript.preferences.renameMatchingJsxTags": true,
   "javascript.inlayHints.enumMemberValues.enabled": true,
   "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
   "javascript.inlayHints.parameterNames.enabled": "all",
@@ -255,7 +264,6 @@
   "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
   "javascript.inlayHints.variableTypes.enabled": true,
   "javascript.referencesCodeLens.enabled": true,
-  "javascript.preferences.renameMatchingJsxTags": true,
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
@@ -269,6 +277,8 @@
   "typescript.preferences.importModuleSpecifier": "shortest",
   "typescript.preferences.importModuleSpecifierEnding": "auto",
   "typescript.preferences.includePackageJsonAutoImports": "on",
+  "typescript.preferences.renameMatchingJsxTags": true,
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
   "typescript.inlayHints.enumMemberValues.enabled": true,
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
   "typescript.inlayHints.parameterNames.enabled": "all",
@@ -277,7 +287,7 @@
   "typescript.inlayHints.variableTypes.enabled": true,
   "typescript.referencesCodeLens.enabled": true,
   "typescript.implementationsCodeLens.enabled": true,
-  "typescript.preferences.renameMatchingJsxTags": true,
+  "typescript.workspaceSymbols.excludeLibrarySymbols": true,
 
   // HTML & Handlebars
   "html.format.unformatted": null,

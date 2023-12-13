@@ -15,8 +15,8 @@ fish_add_path "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 alias c="clear"
 
 # set Visual Studio Code as a default text editor
-set -gx EDITOR code --wait --new-window
-set -gx VISUAL code --wait --new-window
+set --global --export EDITOR code --wait --new-window
+set --global --export VISUAL code --wait --new-window
 
 # manual Visual Studio Code shell integration
 string match -q "$TERM_PROGRAM" "vscode"
