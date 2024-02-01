@@ -1,5 +1,5 @@
 name: Quality Checks
-run-name: ${{ github.workflow }} of commit ${{ github.sha }} on ${{ github.ref_name }} by ${{ github.actor }}
+run-name: ${{ github.workflow }} of ${{ github.sha }} on ${{ github.ref_name }}
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
       - reopened
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: "${{ github.workflow }} at ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}"
   cancel-in-progress: true
 
 defaults:
@@ -28,19 +28,20 @@ jobs:
       actions: read
       contents: read
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - id: checkout
+        name: Checkout code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - id: SonarCloud
+      - id: sonarcloud
         name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      - id: ShellCheck
+      - id: shellcheck
         name: Differential ShellCheck
-        uses: redhat-plumbers-in-action/differential-shellcheck@v4
+        uses: redhat-plumbers-in-action/differential-shellcheck@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -49,12 +50,15 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [macos-12, macos-latest]
+        os: [macos-13, macos-14, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Setup workstation
+      - id: checkout
+        name: Checkout code
+        uses: actions/checkout@v4
+      - id: setup
+        name: Setup workstation
         run: ./setup
-      - name: Test setup
+      - id: test
+        name: Test setup
         run: ./test
