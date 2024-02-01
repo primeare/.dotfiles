@@ -16,11 +16,11 @@
 	tool = vscode
 	renames = copies
 [difftool "vscode"]
-	cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
+	cmd = code --wait --diff "$REMOTE" "$LOCAL"
 [merge]
 	tool = vscode
 [mergetool "vscode"]
-	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+	cmd = code --wait --merge "$REMOTE" "$LOCAL" "$BASE" "$MERGED"
 	trustExitCode = true
 [user]
 	name = Vladyslav Dukhin
@@ -29,6 +29,7 @@
 	helper = osxkeychain
 [core]
 	editor = code --wait
+	pager = less --quit-if-one-screen
 [color]
 	ui = auto
 [commit]

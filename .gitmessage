@@ -6,7 +6,7 @@
 # Ex. "feat(parser): add ability to parse arrays"
 # Ex. "refactor(runtime)!: drop support for Node.js 10"
 # Ex. "docs: correct spelling of CHANGELOG"
-# |<----      Maximum Of 50 Characters      ---->|
+# |<----      Maximum Of 72 Characters           |                ---->|
 
 
 # BODY (optional)
@@ -18,4 +18,5 @@
 # BREAKING CHANGE: <description>
 # Co-authored-by: name <name@example.com>
 # Signed-off-by: name <name@example.com>
-# Closes: #ISSUE_NUMBER
+# Closes/Fixes/Resolves: #ISSUE-NUMBER or OWNER/REPOSITORY#ISSUE-NUMBER
+# Refs #ISSUE-NUMBER (not a complete fix)
