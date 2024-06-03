@@ -50,7 +50,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [macos-13, macos-14, macos-latest]
+        os: [macos-13, macos-14]
     runs-on: ${{ matrix.os }}
     steps:
       - id: checkout

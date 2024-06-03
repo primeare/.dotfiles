@@ -3,7 +3,7 @@
   "editor.fontFamily": "Fira Code, monospace",
   "editor.codeLensFontFamily": "Fira Code, monospace",
   "editor.inlayHints.fontFamily": "Fira Code, monospace",
-  "editor.fontWeight": 400,
+  "editor.fontWeight": "400",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
   "editor.inlayHints.fontSize": 10,
@@ -21,10 +21,11 @@
   "editor.find.addExtraSpaceOnTop": false,
   "editor.renderLineHighlight": "all",
   "editor.occurrencesHighlight": "multiFile",
-  "editor.suggest.localityBonus": true,
   "editor.suggest.preview": true,
-  "editor.suggestSelection": "first",
-  "editor.snippetSuggestions": "top",
+  "editor.suggest.localityBonus": true,
+  "editor.suggest.showStatusBar": true,
+  "editor.suggestSelection": "recentlyUsedByPrefix",
+  "editor.snippetSuggestions": "inline",
   "editor.accessibilitySupport": "off",
   "editor.unicodeHighlight.ambiguousCharacters": true,
   "editor.unicodeHighlight.invisibleCharacters": true,
@@ -52,17 +53,23 @@
     "source.fixAll": "never",
     "source.fixAll.eslint": "explicit",
     "source.sortImports": "explicit",
-    "source.addMissingImports": "explicit"
+    "source.addMissingImports": "explicit",
+    "source.organizeImports": "never"
   },
 
   // Window
   "window.zoomLevel": 0,
+  "window.zoomPerWindow": true,
   "window.nativeTabs": true,
-  "window.titleBarStyle": "native",
+  "window.titleBarStyle": "custom",
+  "window.title": "${rootName}",
   "window.newWindowDimensions": "maximized",
-  "window.confirmBeforeClose": "keyboardOnly",
+  "window.restoreFullscreen": true,
+  "window.confirmBeforeClose": "always",
   "window.autoDetectColorScheme": true,
   "window.dialogStyle": "custom",
+  "window.customTitleBarVisibility": "auto",
+  "window.systemColorTheme": "auto",
 
   // Workbench
   "workbench.colorTheme": "Default Dark Modern",
@@ -70,7 +77,7 @@
   "workbench.productIconTheme": "Default",
   "workbench.startupEditor": "none",
   "workbench.sideBar.location": "right",
-  // "workbench.fontAliasing": "antialiased",
+  "workbench.activityBar.location": "top",
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.closeOnFileDelete": true,
@@ -85,6 +92,8 @@
   "workbench.editor.limit.perEditorGroup": true,
   "workbench.editor.limit.value": 7,
   "workbench.editor.dragToOpenWindow": false,
+  "workbench.editor.customLabels.enabled": true,
+  "workbench.editor.customLabels.patterns": {},
   "workbench.tree.enableStickyScroll": true,
   "workbench.tree.stickyScrollMaxItemCount": 7,
   "workbench.tree.renderIndentGuides": "always",
@@ -101,6 +110,8 @@
   "files.eol": "\n",
   "files.defaultLanguage": "${activeEditorLanguage}",
   "files.readonlyFromPermissions": true,
+  "files.autoSaveWhenNoErrors": true,
+  "files.restoreUndoStack": true,
 
   // Explorer
   "explorer.confirmDelete": true,
@@ -110,14 +121,18 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "*.js": "${capture}.js.map, $(capture).*.js, $(capture)_*.js, ${capture}.d.ts",
+    "*.js": "${capture}.js.map, $(capture).*.js, $(capture)_*.js, ${capture}.d.ts, ${capture}.d.ts.map",
     "*.mjs": "$(capture).mjs.map, $(capture).*.mjs, $(capture)_*.mjs",
     "*.cjs": "$(capture).cjs.map, $(capture).*.cjs, $(capture)_*.cjs",
+    "*.ts": "$(capture).d.ts, $(capture).d.ts.map, $(capture).*.ts, $(capture)_*.ts",
+    "*.tsx": "$(capture).*.tsx, $(capture)_*.tsx",
     "*.css": "$(capture).css.map, $(capture).*.css",
-    "package.json": "package-lock.json, npm-shrinkwrap.json, .npm*",
-    ".env": "*.env, .env.*",
+    "package.json": "package-lock.json, npm-shrinkwrap.json, .npm*, .pnp.*, .pnpm*, yarn*, .yarnrc*, lerna*",
+    ".env": "*.env, .env.*, .envrc, env.d.ts",
     ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
     "Dockerfile": "*.dockerfile, .devcontainer.*, .dockerignore, docker-compose.*, compose.*, dockerfile*",
+    "go.mod": "go.sum",
+    "go.work": "go.work.sum"
   },
 
   // Search
@@ -140,6 +155,15 @@
   // Accessibility
   "accessibility.dimUnfocused.enabled": true,
   "accessibility.dimUnfocused.opacity": 0.75,
+  "accessibility.signals.onDebugBreak": {
+    "sound": "on"
+  },
+  "accessibility.signals.terminalCommandFailed": {
+    "sound": "on"
+  },
+  "accessibility.signals.terminalBell": {
+    "sound": "on"
+  },
 
   // Terminal
   "terminal.explorerKind": "external",
@@ -148,6 +172,7 @@
   "terminal.integrated.shellIntegration.decorationsEnabled": "both",
   "terminal.integrated.shellIntegration.suggestEnabled": true,
   "terminal.integrated.fontFamily": "Fira Code, monospace",
+  "terminal.integrated.fontWeight": "400",
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorStyleInactive": "none",
   "terminal.integrated.enablePersistentSessions": false,
@@ -159,20 +184,15 @@
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.gpuAcceleration": "on",
   "terminal.integrated.customGlyphs": true,
-  "terminal.integrated.enableBell": true,
   "terminal.integrated.hideOnStartup": "whenEmpty",
   "terminal.integrated.stickyScroll.enabled": true,
+  "terminal.integrated.enableVisualBell": true,
   "terminal.integrated.autoReplies": {
     "Terminate batch job (Y/N)": "Y\r"
   },
 
   // Keyboard
   "keyboard.touchbar.enabled": false,
-
-  // Audio Cues
-  "audioCues.onDebugBreak": "on",
-  "audioCues.terminalCommandFailed": "on",
-  "audioCues.terminalQuickFix": "on",
 
   // Debug
   "debug.inlineValues": "on",
@@ -193,6 +213,7 @@
   "mdb.sendTelemetry": false,
 
   // Extensions
+  "extensions.autoCheckUpdates": true,
   "extensions.closeExtensionDetailsOnViewChange": true,
   "extensions.ignoreRecommendations": true,
 
@@ -229,17 +250,26 @@
   "git.enableStatusBarSync": false,
   "git.mergeEditor": false,
   "git.untrackedChanges": "separate",
+  "git.autofetch": true,
+  "git.decorations.enabled": true,
   "git.allowNoVerifyCommit": false,
   "git.allowForcePush": false,
+  "git.inputValidation": true,
+  "git.inputValidationLength": 72,
   "git.inputValidationSubjectLength": 72,
   "git.useEditorAsCommitInput": true,
   "git.terminalGitEditor": true,
   "scm.diffDecorationsIgnoreTrimWhitespace": "false",
+  "scm.workingSets.enabled": true,
+  "scm.workingSets.default": "current",
   "[git-commit]": {
     // git commit message subject max length is 72 characters on GitHub
     // but even better to keep a subject shorter (less than 50)
     "editor.rulers": [50, 72],
     "workbench.editor.restoreViewState": false
+  },
+  "[scminput]": {
+    "editor.rulers": [50, 72],
   },
 
   // GitHub
@@ -300,7 +330,8 @@
   // Emmet
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.triggerExpansionOnTab": true,
-  "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
+  "emmet.showExpandedAbbreviation": "always",
+  "emmet.useInlineCompletions": true,
   "emmet.preferences": {
     "bem.elementSeparator": "__",
     "bem.modifierSeparator": "--",
@@ -396,7 +427,10 @@
     "jsonc",
     "prisma",
     "properties",
-    "shellscript"
+    "shellscript",
+    "git-commit",
+    "git-rebase",
+    "commit-msg"
   ],
   "cSpell.userWords": [
     "screencast",
@@ -440,7 +474,7 @@
   "path-intellisense.showHiddenFiles": true,
 
   // Markdown All in One (Extension)
-  "markdown.extension.preview.autoShowPreviewToSide": true,
+  "markdown.extension.preview.autoShowPreviewToSide": false,
   "markdown.extension.orderedList.autoRenumber": true,
   "markdown.extension.toc.levels": "2..6",
   "markdown.extension.toc.slugifyMode": "github",
@@ -453,5 +487,20 @@
 
   // Figma (Extension)
   "figma.autocompleteProperties": true,
-  "figma.autocompleteBlocks": true
+  "figma.autocompleteBlocks": true,
+
+  // Turbo Console Log (extension)
+  "turboConsoleLog.addSemicolonInTheEnd": true,
+  "turboConsoleLog.delimiterInsideMessage": "~",
+  "turboConsoleLog.includeFileNameAndLineNum": true,
+  "turboConsoleLog.insertEmptyLineAfterLogMessage": false,
+  "turboConsoleLog.insertEmptyLineBeforeLogMessage": false,
+  "turboConsoleLog.insertEnclosingClass": true,
+  "turboConsoleLog.insertEnclosingFunction": true,
+  "turboConsoleLog.logFunction": "log",
+  "turboConsoleLog.logMessagePrefix": "",
+  "turboConsoleLog.logMessageSuffix": "",
+  "turboConsoleLog.logType": "log",
+  "turboConsoleLog.quote": "'",
+  "turboConsoleLog.wrapLogMessage": false
 }

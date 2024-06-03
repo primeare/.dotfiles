@@ -7,11 +7,15 @@
 	followTags = true
 [fetch]
 	prune = true
+	writeCommitGraph = true
 [pull]
-	ff = only
+	rebase = true
+[rebase]
+	updateRefs = true
 [branch]
   autosetupmerge = always
   autosetuprebase = always
+	sort = -committerdate
 [diff]
 	tool = vscode
 	renames = copies
@@ -30,10 +34,20 @@
 [core]
 	editor = code --wait
 	pager = less --quit-if-one-screen
+	untrackedcache = true
+	fsmonitor = true
+	# whitespace = trailing-space,space-before-tab,-indent-with-non-tab,tab-in-indent,cr-at-eol
 [color]
 	ui = auto
+[column]
+	ui = auto
 [commit]
+	cleanup = strip
 	template = ~/.gitmessage
+[rerere]
+	# Reuse Recorded Resolution
+	enabled = true
+	autoUpdate = true
 [instaweb]
 	local = true
 	port = 4321
@@ -41,14 +55,19 @@
 	# ex. (git s)
 	s = status --show-stash --ahead-behind --renames
 	# ex. (git c)
-	c = commit
+	c = commit --signoff
 	# ex. (git ca)
-	ca = commit --amend
+	ca = commit --signoff --amend
 	# ex. (git co main, git co -b feature, git co -)
 	co = checkout
+	# ex. (git b)
+	b = branch --all
+	# pull without rebase
+	pu = pull --no-rebase --ff --signoff
 	# pushes changes to the remote branch of the same name
 	# ex. (git p)
-	p = push origin HEAD
+	p = push origin HEAD # use --signed flag
+	fp = push --force-with-lease origin HEAD
 	# outputs the log graph of git history with statistics
 	# ex. (git l)
 	l = log --oneline --graph --decorate --stat --show-signature
@@ -62,4 +81,5 @@
 	file-log = log --follow --graph --decorate --patch --
 	# outputs a condensed summary of the working directory against the branch
 	# ex. (git summary, git summary main)
-	summary = diff --compact-summary
+	summary = diff --word-diff --compact-summary
+	# git maintenance start
