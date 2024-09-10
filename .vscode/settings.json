@@ -35,6 +35,7 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": true,
   "editor.guides.indentation": true,
+  "editor.lightbulb.enabled": "onCode",
   "editor.inlayHints.enabled": "offUnlessPressed",
   "editor.parameterHints.enabled": true,
   "editor.parameterHints.cycle": true,
@@ -76,6 +77,7 @@
   "workbench.iconTheme": "vscode-icons",
   "workbench.productIconTheme": "Default",
   "workbench.startupEditor": "none",
+  "workbench.externalBrowser": "chrome",
   "workbench.sideBar.location": "right",
   "workbench.activityBar.location": "top",
   "workbench.editor.empty.hint": "hidden",
@@ -93,7 +95,10 @@
   "workbench.editor.limit.value": 7,
   "workbench.editor.dragToOpenWindow": false,
   "workbench.editor.customLabels.enabled": true,
-  "workbench.editor.customLabels.patterns": {},
+  "workbench.editor.customLabels.patterns": {
+    "**/app/**/page.tsx": "${dirname} - Page",
+    "**/app/**/layout.tsx": "${dirname} - Layout",
+  },
   "workbench.tree.enableStickyScroll": true,
   "workbench.tree.stickyScrollMaxItemCount": 7,
   "workbench.tree.renderIndentGuides": "always",
@@ -116,6 +121,7 @@
   // Explorer
   "explorer.confirmDelete": true,
   "explorer.confirmDragAndDrop": true,
+  "explorer.autoOpenDroppedFile": false,
   "explorer.decorations.badges": true,
   "explorer.incrementalNaming": "smart",
   "explorer.fileNesting.enabled": true,
@@ -168,9 +174,9 @@
   // Terminal
   "terminal.explorerKind": "external",
   "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.integrated.suggest.enabled": true,
   "terminal.integrated.shellIntegration.enabled": false,
   "terminal.integrated.shellIntegration.decorationsEnabled": "both",
-  "terminal.integrated.shellIntegration.suggestEnabled": true,
   "terminal.integrated.fontFamily": "Fira Code, monospace",
   "terminal.integrated.fontWeight": "400",
   "terminal.integrated.cursorStyle": "line",
@@ -200,6 +206,8 @@
   "debug.showBreakpointsInOverviewRuler": true,
   "debug.confirmOnExit": "always",
   "debug.openExplorerOnEnd": true,
+  "debug.showVariableTypes": true,
+  "debug.javascript.enableNetworkView": true,
 
   // Zen Mode
   "zenMode.showTabs": "multiple",
@@ -239,6 +247,7 @@
   "diffEditor.diffAlgorithm": "advanced",
   "diffEditor.useInlineViewWhenSpaceIsLimited": false,
   "diffEditor.experimental.showMoves": true,
+  "diffEditor.experimental.useTrueInlineView": true,
   "multiDiffEditor.experimental.enabled": true,
 
   // Merge Editor
@@ -455,7 +464,6 @@
   ],
 
   // Visual Studio IntelliCode (Extension)
-  "vsintellicode.features.python.deepLearning": "enabled",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
   // Template String Converter (Extension)
