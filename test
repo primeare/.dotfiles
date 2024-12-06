@@ -10,15 +10,17 @@ function fail --argument-names message;
 end
 
 set INSTALLED_FILES_PATHS \
-  "$HOME/.gitconfig" \
+  "$HOME/.config/git/config" \
   "$HOME/.gitmessage" \
   "$HOME/.npmrc" \
   "$HOME/.config/fish/config.fish" \
   "$HOME/.config/starship.toml" \
-  "$HOME/Library/Application Support/Code/User/settings.json"
+  "$HOME/Library/Application Support/Code/User/settings.json" \
+  "$HOME/Library/Application Support/Code/User/snippets/global.code-snippets"
 
 set INSTALLED_DIRECTORIES_PATHS \
-  "$HOME/.config/fish/functions"
+  "$HOME/.config/fish/functions" \
+  "$HOME/.config/fish/completions"
 
 whereis fish
 fish --version
