@@ -12,7 +12,6 @@ LATEST_NODEJS_VERSION=$(curl "https://nodejs.org/dist/latest/" --fail --compress
 PKG_DOWNLOAD_URL="https://nodejs.org/dist/latest/node-$LATEST_NODEJS_VERSION.pkg"
 PKG_OUTPUT_PATH="./node-latest.pkg"
 NPM_GLOBAL_PACKAGE_DIR_PATH="$HOME/.npm-packages/bin"
-NODEJS_SHIMS_DIR_PATH="$HOME/.node-shims"
 
 echo "Installing Node.js $LATEST_NODEJS_VERSION"
 
@@ -28,7 +27,3 @@ rm -f $PKG_OUTPUT_PATH
 
 # create NPM global package directory if it does not exist
 mkdir -p -v "$NPM_GLOBAL_PACKAGE_DIR_PATH"
-mkdir -p -v "$NODEJS_SHIMS_DIR_PATH"
-
-# enable third-party package managers and install their shims
-corepack enable --install-directory "$NODEJS_SHIMS_DIR_PATH"
