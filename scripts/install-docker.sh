@@ -28,3 +28,6 @@ sudo /Volumes/Docker/Docker.app/Contents/MacOS/install --accept-license --user="
 sudo hdiutil unmount "/Volumes/Docker"
 
 rm -rf $DMG_OUTPUT_PATH
+
+# setup command completions
+docker completion fish > ~/.config/fish/completions/docker.fish

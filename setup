@@ -13,6 +13,7 @@ LINKING_MAP=(
   "$SCRIPT_DIR/.npmrc:$HOME/.npmrc"
   "$SCRIPT_DIR/.config/fish/config.fish:$HOME/.config/fish/config.fish"
   "$SCRIPT_DIR/.config/fish/functions:$HOME/.config/fish"
+  "$SCRIPT_DIR/.config/fish/completions:$HOME/.config/fish"
   "$SCRIPT_DIR/.config/starship.toml:$HOME/.config/starship.toml"
   "$SCRIPT_DIR/.vscode/settings.json:$HOME/Library/Application Support/Code/User/settings.json"
   "$SCRIPT_DIR/.vscode/global.code-snippets:$HOME/Library/Application Support/Code/User/snippets/global.code-snippets"
