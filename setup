@@ -8,7 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" &> /dev/null && pwd)"
 
 # TODO: use "associative array" when Bash 4 comes to macOS
 LINKING_MAP=(
-  "$SCRIPT_DIR/.gitconfig:$HOME/.gitconfig"
+  "$SCRIPT_DIR/.gitconfig:$HOME/.config/git/config"
   "$SCRIPT_DIR/.gitmessage:$HOME/.gitmessage"
   "$SCRIPT_DIR/.npmrc:$HOME/.npmrc"
   "$SCRIPT_DIR/.config/fish/config.fish:$HOME/.config/fish/config.fish"
@@ -60,6 +60,7 @@ fi
 "$SCRIPT_DIR/scripts/install-aws-cli.sh"
 
 # create directories if they don't exist
+mkdir -p -v "$HOME/.config/git"
 mkdir -p -v "$HOME/.config/fish"
 mkdir -p -v "$HOME/Library/Application Support/Code/User/snippets"
 
