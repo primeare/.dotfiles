@@ -54,12 +54,6 @@ fi
 # install Visual Studio Code
 "$SCRIPT_DIR/scripts/install-vscode.sh"
 
-# install Docker Desktop
-"$SCRIPT_DIR/scripts/install-docker.sh"
-
-# install AWS CLI
-"$SCRIPT_DIR/scripts/install-aws-cli.sh"
-
 # create directories if they don't exist
 mkdir -p -v "$HOME/.config/git"
 mkdir -p -v "$HOME/.config/fish"
@@ -71,6 +65,12 @@ for LINK in "${LINKING_MAP[@]}"; do
   DESTINATION="${LINK##*:}"
   ln -f -s -v "$SOURCE" "$DESTINATION"
 done
+
+# install Docker Desktop
+"$SCRIPT_DIR/scripts/install-docker.sh"
+
+# install AWS CLI
+"$SCRIPT_DIR/scripts/install-aws-cli.sh"
 
 # install Visual Studio Code extensions
 "$SCRIPT_DIR/scripts/install-vscode-extensions.sh"

@@ -3,7 +3,7 @@
 # exit immediately if a pipeline exits with a non-zero status
 set -Eeuxo pipefail
 
-VSCODE_EXTENSIONS_JSON_PATH="$(dirname $0)/../.vscode/extensions.json"
+VSCODE_EXTENSIONS_JSON_PATH="$(dirname "$0")/../.vscode/extensions.json"
 VSCODE_CMD="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 
 if [[ ! -f "$VSCODE_EXTENSIONS_JSON_PATH" ]]; then
