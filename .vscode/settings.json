@@ -12,21 +12,28 @@
   "editor.tabSize": 2,
   "editor.rulers": [80],
   "editor.detectIndentation": true,
-  "editor.minimap.enabled": false,
   "editor.lineNumbers": "on",
   "editor.tabCompletion": "on",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.smoothScrolling": true,
   "editor.folding": false,
-  "editor.find.addExtraSpaceOnTop": false,
+  "editor.glyphMargin": true,
+  "editor.defaultColorDecorators": true,
+  "editor.colorDecorators": true,
+  "editor.overviewRulerBorder": false,
+  "editor.linkedEditing": true,
   "editor.renderLineHighlight": "all",
   "editor.occurrencesHighlight": "multiFile",
+  "editor.accessibilitySupport": "off",
+  "editor.snippetSuggestions": "inline",
+  "editor.suggestSelection": "recentlyUsedByPrefix",
+  "editor.minimap.enabled": false,
+  "editor.find.addExtraSpaceOnTop": false,
+  "editor.semanticHighlighting.enabled": true,
   "editor.suggest.preview": true,
   "editor.suggest.localityBonus": true,
   "editor.suggest.showStatusBar": true,
-  "editor.suggestSelection": "recentlyUsedByPrefix",
-  "editor.snippetSuggestions": "inline",
-  "editor.accessibilitySupport": "off",
+  "editor.suggest.filterGraceful": true,
   "editor.unicodeHighlight.ambiguousCharacters": true,
   "editor.unicodeHighlight.invisibleCharacters": true,
   "editor.unicodeHighlight.nonBasicASCII": true,
@@ -39,14 +46,12 @@
   "editor.inlayHints.enabled": "offUnlessPressed",
   "editor.parameterHints.enabled": true,
   "editor.parameterHints.cycle": true,
-  "editor.linkedEditing": true,
   "editor.stickyScroll.enabled": true,
   "editor.stickyScroll.scrollWithEditor": true,
   "editor.stickyScroll.maxLineCount": 5,
-  "editor.defaultColorDecorators": true,
   "editor.experimental.asyncTokenization": true,
   "editor.defaultFormatter": null,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.codeActionWidget.includeNearbyQuickFixes": true,
@@ -62,8 +67,9 @@
   "window.zoomLevel": 0,
   "window.zoomPerWindow": true,
   "window.nativeTabs": true,
+  "window.commandCenter": false,
   "window.titleBarStyle": "custom",
-  "window.title": "${rootName}",
+  "window.title": "${activeEditorMedium}${separator}${rootName}",
   "window.newWindowDimensions": "maximized",
   "window.restoreFullscreen": true,
   "window.confirmBeforeClose": "always",
@@ -80,6 +86,7 @@
   "workbench.externalBrowser": "chrome",
   "workbench.sideBar.location": "right",
   "workbench.activityBar.location": "top",
+  "workbench.panel.showLabels": false,
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.closeOnFileDelete": true,
@@ -102,9 +109,10 @@
   "workbench.tree.enableStickyScroll": true,
   "workbench.tree.stickyScrollMaxItemCount": 7,
   "workbench.tree.renderIndentGuides": "always",
-  "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.commandPalette.preserveInput": true,
   "workbench.list.smoothScrolling": true,
+  "workbench.view.alwaysShowHeaderActions": true,
+  "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
 
@@ -123,22 +131,33 @@
   "explorer.confirmDragAndDrop": true,
   "explorer.autoOpenDroppedFile": false,
   "explorer.decorations.badges": true,
+  "explorer.compactFolders": false,
   "explorer.incrementalNaming": "smart",
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     "*.js": "${capture}.js.map, $(capture).*.js, $(capture)_*.js, ${capture}.d.ts, ${capture}.d.ts.map",
-    "*.mjs": "$(capture).mjs.map, $(capture).*.mjs, $(capture)_*.mjs",
-    "*.cjs": "$(capture).cjs.map, $(capture).*.cjs, $(capture)_*.cjs",
-    "*.ts": "$(capture).d.ts, $(capture).d.ts.map, $(capture).*.ts, $(capture)_*.ts",
-    "*.tsx": "$(capture).*.tsx, $(capture)_*.tsx",
-    "*.css": "$(capture).css.map, $(capture).*.css",
-    "package.json": "package-lock.json, npm-shrinkwrap.json, .npm*, .pnp.*, .pnpm*, yarn*, .yarnrc*, lerna*",
+    "*.mjs": "$(capture).mjs.map, $(capture).*.mjs, $(capture)_*.mjs, ${capture}.d.mts, ${capture}.d.mts.map",
+    "*.cjs": "$(capture).cjs.map, $(capture).*.cjs, $(capture)_*.cjs, ${capture}.d.cts, ${capture}.d.cts.map",
+    "*.ts": "$(capture).*.ts, $(capture)_*.ts, $(capture).d.ts, $(capture).d.ts.map",
+    "*.jsx": "${capture}.js, $(capture).*.jsx, $(capture)_*.jsx",
+    "*.tsx": "$(capture).ts, $(capture).*.tsx, $(capture)_*.tsx",
+    "*.module.ts": "$(capture).resolver.ts, $(capture).controller.ts, $(capture).service.ts",
+    "*.css": "$(capture).css.map, $(capture).*.css, $(capture)_*.css, $(capture)-*.css",
+    "*.c": "$(capture).h",
+    "*.cc": "$(capture).hpp, $(capture).h, $(capture).hxx, $(capture).hh",
+    "*.cpp": "$(capture).hpp, $(capture).h, $(capture).hxx, $(capture).hh",
     ".env": "*.env, .env.*, .envrc, env.d.ts",
     ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
+    "tsconfig.json": "tsconfig.*.json, tsconfig_*.json, tsconfig-*.json",
+    "package.json": "package-lock.json, npm-shrinkwrap.json, .npm*, .pnp.*, .pnpm*, pnpm*, yarn*, .yarnrc*, lerna*, bun.lockb, turbo*",
     "Dockerfile": "*.dockerfile, .devcontainer.*, .dockerignore, docker-compose.*, compose.*, dockerfile*",
     "go.mod": "go.sum",
-    "go.work": "go.work.sum"
+    "go.work": "go.work.sum",
+    "Makefile": "*.mk",
+    // TODO: .config files
+    // see: https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file#supported-file-types
+    "README.md": "README_*, README-*, AUTHORS, CONTRIBUTORS, CODEOWNERS, MAINTAINERS, CREDITS, CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md, SUPPORT.md, BUILDING.md, CHANGELOG*, HISTORY.md, GOVERNANCE.md, onboarding.md, LICENSE, RELEASE_NOTES*, ROADMAP.md",
   },
 
   // Search
@@ -151,11 +170,14 @@
     "**/bower_components": true,
     "**/package-lock.json": true,
     "**/yarn.lock": true,
-    "**/*.code-search": true
+    "**/*.code-search": true,
+    "**/dist": true,
+    "**/out": true
   },
 
   // Breadcrumbs
   "breadcrumbs.enabled": true,
+  "breadcrumbs.icons": false,
   "breadcrumbs.symbolPath": "off",
 
   // Accessibility
@@ -179,12 +201,14 @@
   "terminal.integrated.shellIntegration.decorationsEnabled": "both",
   "terminal.integrated.fontFamily": "Fira Code, monospace",
   "terminal.integrated.fontWeight": "400",
+  "terminal.integrated.fontSize": 12,
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorStyleInactive": "none",
   "terminal.integrated.enablePersistentSessions": false,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.confirmOnExit": "hasChildProcesses",
   "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.mouseWheelScrollSensitivity": 0.2,
   "terminal.integrated.scrollback": 100000,
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.cursorBlinking": true,
@@ -196,6 +220,15 @@
   "terminal.integrated.autoReplies": {
     "Terminate batch job (Y/N)": "Y\r"
   },
+  "terminal.integrated.allowedLinkSchemes": [
+    "file",
+    "http",
+    "https",
+    "mailto",
+    "vscode",
+    "vscode-insiders",
+    "docker-desktop"
+  ],
 
   // Keyboard
   "keyboard.touchbar.enabled": false,
@@ -222,6 +255,7 @@
 
   // Extensions
   "extensions.autoCheckUpdates": true,
+  "extensions.experimental.deferredStartupFinishedActivation": true,
   "extensions.closeExtensionDetailsOnViewChange": true,
   "extensions.ignoreRecommendations": true,
 
@@ -303,6 +337,7 @@
   "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
   "javascript.inlayHints.variableTypes.enabled": true,
   "javascript.referencesCodeLens.enabled": true,
+  "javascript.experimental.updateImportsOnPaste": true,
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
@@ -327,6 +362,8 @@
   "typescript.referencesCodeLens.enabled": true,
   "typescript.implementationsCodeLens.enabled": true,
   "typescript.workspaceSymbols.excludeLibrarySymbols": true,
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+  "typescript.experimental.updateImportsOnPaste": true,
 
   // HTML & Handlebars
   "html.format.unformatted": null,
@@ -431,16 +468,17 @@
   // Code Spell Checker (Extension)
   "cSpell.language": "en-GB,uk",
   "cSpell.showStatus": false,
-  "cSpell.enableFiletypes": [
-    "json",
-    "jsonc",
-    "prisma",
-    "properties",
-    "shellscript",
-    "git-commit",
-    "git-rebase",
-    "commit-msg"
-  ],
+  "cSpell.enabledFileTypes": {
+    "*": true,
+    "json": true,
+    "jsonc": true,
+    "prisma": true,
+    "properties": true,
+    "shellscript": true,
+    "git-commit": true,
+    "git-rebase": true,
+    "commit-msg": true
+  },
   "cSpell.userWords": [
     "screencast",
     "sonarlint"
@@ -450,9 +488,14 @@
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.codeLens.enabled": false,
+  "gitlens.terminal.overrideGitEditor": false,
+  "gitlens.statusBar.enabled": false,
+  "gitlens.statusBar.pullRequests.enabled": false,
+  "gitlens.graph.statusBar.enabled": false,
+  "gitlens.launchpad.indicator.enabled": false,
 
   // ESLint (Extension)
-  "eslint.experimental.useFlatConfig": true,
+  "eslint.useFlatConfig": true,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "eslint.useESLintClass": true,
@@ -481,9 +524,11 @@
   // Path IntelliSense (Extension)
   "path-intellisense.showHiddenFiles": true,
 
+  // Go (Extension)
+  "go.installDependenciesWhenBuilding": true,
+
   // Markdown All in One (Extension)
   "markdown.extension.preview.autoShowPreviewToSide": false,
-  "markdown.extension.orderedList.autoRenumber": true,
   "markdown.extension.toc.levels": "2..6",
   "markdown.extension.toc.slugifyMode": "github",
   "markdown.extension.toc.updateOnSave": true,
@@ -510,5 +555,11 @@
   "turboConsoleLog.logMessageSuffix": "",
   "turboConsoleLog.logType": "log",
   "turboConsoleLog.quote": "'",
-  "turboConsoleLog.wrapLogMessage": false
+  "turboConsoleLog.wrapLogMessage": false,
+
+  // Live Server (extension)
+  "liveServer.settings.CustomBrowser": "chrome:PrivateMode",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.donotVerifyTags": true,
+  "diffEditor.renderSideBySide": true,
 }

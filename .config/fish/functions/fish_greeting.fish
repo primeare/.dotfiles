@@ -14,5 +14,4 @@ function fish_greeting
   end
 
   set_color normal
-
 end
