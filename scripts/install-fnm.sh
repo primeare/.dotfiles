@@ -3,8 +3,10 @@
 # exit immediately if a pipeline exits with a non-zero status
 set -Eeuxo pipefail
 
+FNM_PATH="$HOME/.fnm"
+
 # Install FNM (https://github.com/Schniz/fnm)
-curl -fsSL https://fnm.vercel.app/install | bash -s -- --force-no-brew --install-dir "$HOME/.fnm" --skip-shell
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --force-no-brew --install-dir "$FNM_PATH" --skip-shell
 
 # Setup Fish shell for FNM
 mkdir -p ~/.config/fish/conf.d
@@ -14,7 +16,7 @@ fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --shell 
 EOF
 
 # Setup Fish FNM completions
-fnm completions --shell=fish > ~/.config/fish/completions/fnm.fish
+"$FNM_PATH/fnm" completions --shell=fish > ~/.config/fish/completions/fnm.fish
 
 # Install latest Node.js version
-fnm install --latest
+"$FNM_PATH/fnm" install --latest
