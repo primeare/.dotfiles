@@ -35,9 +35,8 @@ jobs:
           fetch-depth: 0
       - id: sonarcloud
         name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
+        uses: sonarsource/sonarqube-scan-action@v4
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - id: shellcheck
         name: Differential ShellCheck
