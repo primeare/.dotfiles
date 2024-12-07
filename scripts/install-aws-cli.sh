@@ -11,6 +11,6 @@ curl "$PKG_DOWNLOAD_URL" \
     --compressed \
     --location
 
-sudo installer -store -pkg $PKG_OUTPUT_PATH -target "/" -verbose
+sudo installer -pkg $PKG_OUTPUT_PATH -target "/" -verbose
 
 rm -f $PKG_OUTPUT_PATH
