@@ -1,9 +1,3 @@
-# initialise Starship
-starship init fish | source
-
-# enable transient prompt
-enable_transience
-
 # add global NPM package directory to PATH
 fish_add_path "$HOME/.npm-packages/bin"
 fish_add_path "$HOME/.bin"
@@ -21,3 +15,9 @@ set --global --export VISUAL code --wait --new-window
 # manual Visual Studio Code shell integration
 string match -q "$TERM_PROGRAM" "vscode"
 and . (code --locate-shell-integration-path fish)
+
+# initialise Starship
+starship init fish | source
+
+# enable transient prompt
+enable_transience
