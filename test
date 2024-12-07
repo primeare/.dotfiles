@@ -28,6 +28,9 @@ fish --version
 whereis starship
 starship --version
 
+whereis fnm
+fnm --version
+
 whereis node
 node --version
 

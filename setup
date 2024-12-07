@@ -39,38 +39,38 @@ if [[ $ARCH == "arm64" ]]; then
   softwareupdate --install-rosetta --agree-to-license --verbose
 fi
 
-# install Fish shell
+# Install Fish shell
 "$SCRIPT_DIR/scripts/install-fish.sh"
 
-# install Starship prompt
+# Install Starship prompt
 "$SCRIPT_DIR/scripts/install-starship.sh"
 
-# install Node.js
-"$SCRIPT_DIR/scripts/install-nodejs.sh"
+# Install FNM (Fast Node Manager)
+"$SCRIPT_DIR/scripts/install-fnm.sh"
 
-# install fonts
+# Install fonts
 "$SCRIPT_DIR/scripts/install-fonts.sh"
 
-# install Visual Studio Code
+# Install Visual Studio Code
 "$SCRIPT_DIR/scripts/install-vscode.sh"
 
-# create directories if they don't exist
+# Create directories if they don't exist
 mkdir -p -v "$HOME/.config/git"
 mkdir -p -v "$HOME/.config/fish"
 mkdir -p -v "$HOME/Library/Application Support/Code/User/snippets"
 
-# create symbolic links to file and directories in the .dotfiles
+# Create symbolic links to file and directories in the .dotfiles
 for LINK in "${LINKING_MAP[@]}"; do
   SOURCE="${LINK%%:*}"
   DESTINATION="${LINK##*:}"
   ln -f -s -v "$SOURCE" "$DESTINATION"
 done
 
-# install Docker Desktop
+# Install Docker Desktop
 "$SCRIPT_DIR/scripts/install-docker.sh"
 
-# install AWS CLI
+# Install AWS CLI
 "$SCRIPT_DIR/scripts/install-aws-cli.sh"
 
-# install Visual Studio Code extensions
+# Install Visual Studio Code extensions
 "$SCRIPT_DIR/scripts/install-vscode-extensions.sh"
