@@ -45,9 +45,6 @@ fi
 # Install Starship prompt
 "$SCRIPT_DIR/scripts/install-starship.sh"
 
-# Install FNM (Fast Node Manager)
-"$SCRIPT_DIR/scripts/install-fnm.sh"
-
 # Install fonts
 "$SCRIPT_DIR/scripts/install-fonts.sh"
 
@@ -65,6 +62,9 @@ for LINK in "${LINKING_MAP[@]}"; do
   DESTINATION="${LINK##*:}"
   ln -f -s -v "$SOURCE" "$DESTINATION"
 done
+
+# Install FNM (Fast Node Manager)
+"$SCRIPT_DIR/scripts/install-fnm.sh"
 
 # Install Docker Desktop
 "$SCRIPT_DIR/scripts/install-docker.sh"
