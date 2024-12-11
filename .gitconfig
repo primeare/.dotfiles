@@ -98,7 +98,7 @@
 	# ex. (git co main, git co -b feature, git co -)
 	co = checkout
 	# ex. (git b)
-	b = branch --all
+	b = branch -vv
 	# pull without rebase
 	pu = pull --no-rebase --ff --signoff
 	# pushes changes to the remote branch of the same name
