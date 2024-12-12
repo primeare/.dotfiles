@@ -18,7 +18,7 @@
   "editor.smoothScrolling": true,
   "editor.folding": false,
   "editor.glyphMargin": true,
-  "editor.defaultColorDecorators": true,
+  "editor.defaultColorDecorators": "auto",
   "editor.colorDecorators": true,
   "editor.overviewRulerBorder": false,
   "editor.linkedEditing": true,
@@ -27,8 +27,11 @@
   "editor.accessibilitySupport": "off",
   "editor.snippetSuggestions": "inline",
   "editor.suggestSelection": "recentlyUsedByPrefix",
+  "editor.overtypeOnPaste": false,
+  "editor.overtypeCursorStyle": "underline",
   "editor.minimap.enabled": false,
   "editor.find.addExtraSpaceOnTop": false,
+  "editor.find.history": "never",
   "editor.semanticHighlighting.enabled": true,
   "editor.suggest.preview": true,
   "editor.suggest.localityBonus": true,
@@ -54,6 +57,14 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.pasteAs.preferences": [
+    "text.updateImports",
+    "uri.path.relative"
+  ],
+  "editor.dropIntoEditor.preferences": [
+    "text.updateImports",
+    "uri.path.relative"
+  ],
   "editor.codeActionWidget.includeNearbyQuickFixes": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": "never",
@@ -87,6 +98,7 @@
   "workbench.sideBar.location": "right",
   "workbench.activityBar.location": "top",
   "workbench.panel.showLabels": false,
+  "workbench.navigationControl.enabled": false,
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.closeOnFileDelete": true,
@@ -192,14 +204,19 @@
   "accessibility.signals.terminalBell": {
     "sound": "on"
   },
+  "accessibility.signals.codeActionApplied": {
+    "sound": "on"
+  },
 
   // Terminal
   "terminal.explorerKind": "external",
   "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.suggest.enabled": true,
-  "terminal.integrated.shellIntegration.enabled": false,
+  "terminal.integrated.suggest.enableExtensionCompletions": true,
+  "terminal.integrated.shellIntegration.enabled": true,
   "terminal.integrated.shellIntegration.decorationsEnabled": "both",
   "terminal.integrated.fontFamily": "Fira Code, monospace",
+  "terminal.integrated.fontLigatures": true,
   "terminal.integrated.fontWeight": "400",
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.cursorStyle": "line",
@@ -258,6 +275,7 @@
   "extensions.experimental.deferredStartupFinishedActivation": true,
   "extensions.closeExtensionDetailsOnViewChange": true,
   "extensions.ignoreRecommendations": true,
+  "extensions.allowed": "*",
 
   // Problems
   "problems.defaultViewMode": "table",
@@ -280,6 +298,7 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.diffAlgorithm": "advanced",
   "diffEditor.useInlineViewWhenSpaceIsLimited": false,
+  "diffEditor.renderSideBySide": true,
   "diffEditor.experimental.showMoves": true,
   "diffEditor.experimental.useTrueInlineView": true,
   "multiDiffEditor.experimental.enabled": true,
@@ -302,6 +321,8 @@
   "git.inputValidationSubjectLength": 72,
   "git.useEditorAsCommitInput": true,
   "git.terminalGitEditor": true,
+  "git.blame.statusBarItem.enabled": true,
+  "git.blame.statusBarItem.template": "${authorName} (${authorDateAgo})",
   "scm.diffDecorationsIgnoreTrimWhitespace": "false",
   "scm.workingSets.enabled": true,
   "scm.workingSets.default": "current",
@@ -336,8 +357,8 @@
   "javascript.inlayHints.parameterTypes.enabled": true,
   "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
   "javascript.inlayHints.variableTypes.enabled": true,
+  "javascript.updateImportsOnPaste.enabled": true,
   "javascript.referencesCodeLens.enabled": true,
-  "javascript.experimental.updateImportsOnPaste": true,
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
@@ -361,9 +382,10 @@
   "typescript.inlayHints.variableTypes.enabled": true,
   "typescript.referencesCodeLens.enabled": true,
   "typescript.implementationsCodeLens.enabled": true,
+  "typescript.updateImportsOnPaste.enabled": true,
   "typescript.workspaceSymbols.excludeLibrarySymbols": true,
   "typescript.tsserver.experimental.enableProjectDiagnostics": true,
-  "typescript.experimental.updateImportsOnPaste": true,
+  "typescript.experimental.expandableHover": true,
 
   // HTML & Handlebars
   "html.format.unformatted": null,
@@ -560,6 +582,5 @@
   // Live Server (extension)
   "liveServer.settings.CustomBrowser": "chrome:PrivateMode",
   "liveServer.settings.donotShowInfoMsg": true,
-  "liveServer.settings.donotVerifyTags": true,
-  "diffEditor.renderSideBySide": true,
+  "liveServer.settings.donotVerifyTags": true
 }

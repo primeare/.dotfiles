@@ -12,10 +12,6 @@ alias c="clear"
 set --global --export EDITOR code --wait --new-window
 set --global --export VISUAL code --wait --new-window
 
-# manual Visual Studio Code shell integration
-string match -q "$TERM_PROGRAM" "vscode"
-and . (code --locate-shell-integration-path fish)
-
 # initialise Starship
 starship init fish | source
 
