@@ -99,6 +99,7 @@
   "workbench.activityBar.location": "top",
   "workbench.panel.showLabels": false,
   "workbench.navigationControl.enabled": false,
+  "workbench.layoutControl.enabled": false,
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.closeOnFileDelete": true,
