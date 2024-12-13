@@ -14,3 +14,11 @@ curl "$PKG_DOWNLOAD_URL" \
 sudo installer -pkg $PKG_OUTPUT_PATH -target "/" -verbose
 
 rm -f $PKG_OUTPUT_PATH
+
+cat << 'EOF' > "$HOME/.config/fish/completions/aws.fish"
+function __fish_complete_aws
+  env COMP_LINE=(commandline --current-process --cut-at-cursor) aws_completer | tr -d ' '
+end
+
+complete --command aws --no-files --arguments "(__fish_complete_aws)"
+EOF
