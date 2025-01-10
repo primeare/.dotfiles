@@ -205,9 +205,6 @@
   "accessibility.signals.terminalBell": {
     "sound": "on"
   },
-  "accessibility.signals.codeActionApplied": {
-    "sound": "on"
-  },
 
   // Terminal
   "terminal.explorerKind": "external",
