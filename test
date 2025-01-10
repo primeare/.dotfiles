@@ -22,6 +22,9 @@ set INSTALLED_DIRECTORIES_PATHS \
   "$HOME/.config/fish/functions" \
   "$HOME/.config/fish/completions"
 
+whereis git
+git --version
+
 whereis fish
 fish --version
 
