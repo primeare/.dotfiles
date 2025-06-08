@@ -27,6 +27,9 @@
   "editor.accessibilitySupport": "off",
   "editor.snippetSuggestions": "inline",
   "editor.suggestSelection": "recentlyUsedByPrefix",
+  "editor.inlineSuggest.edits.renderSideBySide": "auto",
+  "editor.inlineSuggest.edits.showCollapsed": true,
+  "editor.inlineSuggest.syntaxHighlightingEnabled": false,
   "editor.overtypeOnPaste": false,
   "editor.overtypeCursorStyle": "underline",
   "editor.minimap.enabled": false,
@@ -52,7 +55,6 @@
   "editor.stickyScroll.enabled": true,
   "editor.stickyScroll.scrollWithEditor": true,
   "editor.stickyScroll.maxLineCount": 5,
-  "editor.experimental.asyncTokenization": true,
   "editor.defaultFormatter": null,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
@@ -69,10 +71,15 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "never",
     "source.fixAll.eslint": "explicit",
+    "source.fixAll.ts": "explicit",
+    "source.fixAll.stylelint": "explicit",
     "source.sortImports": "explicit",
     "source.addMissingImports": "explicit",
     "source.organizeImports": "never"
   },
+  "editor.experimental.asyncTokenization": true,
+  "editor.experimental.preferTreeSitter.css": true,
+  "editor.experimental.preferTreeSitter.regex": true,
 
   // Window
   "window.zoomLevel": 0,
@@ -80,7 +87,7 @@
   "window.nativeTabs": true,
   "window.commandCenter": false,
   "window.titleBarStyle": "custom",
-  "window.title": "${activeEditorMedium}${separator}${rootName}",
+  "window.title": "${activeEditorMedium}${separator}${rootName}${separator}${activeEditorState}",
   "window.newWindowDimensions": "maximized",
   "window.restoreFullscreen": true,
   "window.confirmBeforeClose": "always",
@@ -96,8 +103,10 @@
   "workbench.startupEditor": "none",
   "workbench.externalBrowser": "chrome",
   "workbench.sideBar.location": "right",
+  "workbench.secondarySideBar.defaultVisibility": "visible",
   "workbench.activityBar.location": "top",
-  "workbench.panel.showLabels": false,
+  "workbench.panel.showLabels": true,
+  "workbench.secondarySideBar.showLabels": true,
   "workbench.navigationControl.enabled": false,
   "workbench.layoutControl.enabled": false,
   "workbench.editor.empty.hint": "hidden",
@@ -115,14 +124,13 @@
   "workbench.editor.limit.value": 7,
   "workbench.editor.dragToOpenWindow": false,
   "workbench.editor.customLabels.enabled": true,
-  "workbench.editor.customLabels.patterns": {
-    "**/app/**/page.tsx": "${dirname} - Page",
-    "**/app/**/layout.tsx": "${dirname} - Layout",
-  },
+  "workbench.editor.customLabels.patterns": {},
   "workbench.tree.enableStickyScroll": true,
   "workbench.tree.stickyScrollMaxItemCount": 7,
   "workbench.tree.renderIndentGuides": "always",
   "workbench.commandPalette.preserveInput": true,
+  "workbench.commandPalette.experimental.suggestCommands": true,
+  "workbench.commandPalette.experimental.enableNaturalLanguageSearch": true,
   "workbench.list.smoothScrolling": true,
   "workbench.view.alwaysShowHeaderActions": true,
   "workbench.settings.enableNaturalLanguageSearch": false,
@@ -205,16 +213,20 @@
   "accessibility.signals.terminalBell": {
     "sound": "on"
   },
+  "accessibility.signals.voiceRecordingStarted": {
+    "sound": "auto"
+  },
 
   // Terminal
   "terminal.explorerKind": "external",
   "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.suggest.enabled": true,
-  "terminal.integrated.suggest.enableExtensionCompletions": true,
+  "terminal.integrated.suggest.inlineSuggestion": "alwaysOnTopExceptExactMatch",
+  "terminal.integrated.suggest.cdPath": "relative",
   "terminal.integrated.shellIntegration.enabled": true,
   "terminal.integrated.shellIntegration.decorationsEnabled": "both",
   "terminal.integrated.fontFamily": "Fira Code, monospace",
-  "terminal.integrated.fontLigatures": true,
+  "terminal.integrated.fontLigatures.enabled": true,
   "terminal.integrated.fontWeight": "400",
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.cursorStyle": "line",
@@ -232,6 +244,9 @@
   "terminal.integrated.hideOnStartup": "whenEmpty",
   "terminal.integrated.stickyScroll.enabled": true,
   "terminal.integrated.enableVisualBell": true,
+  "terminal.integrated.hideOnLastClosed": true,
+  "terminal.integrated.tabs.description": "${task}${separator}${progress}${separator}${local}${separator}${cwdFolder}",
+  "terminal.integrated.tabs.title": "${process}${separator}${progress}",
   "terminal.integrated.autoReplies": {
     "Terminate batch job (Y/N)": "Y\r"
   },
@@ -263,9 +278,10 @@
 
   // Telemetry
   "telemetry.telemetryLevel": "off",
+  "telemetry.feedback.enabled": false,
+  "docker.lsp.telemetry": "off",
   "redhat.telemetry.enabled": false,
   "sonarlint.disableTelemetry": true,
-  "gitlens.telemetry.enabled": false,
   "mdb.sendTelemetry": false,
 
   // Extensions
@@ -277,6 +293,9 @@
 
   // Problems
   "problems.defaultViewMode": "table",
+
+  // Chat
+  "chat.commandCenter.enabled": false,
 
   // Screencast Mode
   "screencastMode.fontSize": 56,
@@ -310,6 +329,8 @@
   "git.enableStatusBarSync": false,
   "git.mergeEditor": false,
   "git.untrackedChanges": "separate",
+  "git.discardUntrackedChangesToTrash": true,
+  "git.showReferenceDetails": true,
   "git.autofetch": true,
   "git.decorations.enabled": true,
   "git.allowNoVerifyCommit": false,
@@ -319,8 +340,10 @@
   "git.inputValidationSubjectLength": 72,
   "git.useEditorAsCommitInput": true,
   "git.terminalGitEditor": true,
+  "git.diagnosticsCommitHook.enabled": true,
   "git.blame.statusBarItem.enabled": true,
   "git.blame.statusBarItem.template": "${authorName} (${authorDateAgo})",
+  "git.blame.editorDecoration.enabled": false,
   "scm.diffDecorationsIgnoreTrimWhitespace": "false",
   "scm.workingSets.enabled": true,
   "scm.workingSets.default": "current",
@@ -336,6 +359,7 @@
 
   // GitHub
   "github.gitProtocol": "ssh",
+  "github.showAvatar": true,
 
   // JavaScript
   "js/ts.implicitProjectConfig.checkJs": true,
@@ -349,7 +373,6 @@
   "javascript.preferences.importModuleSpecifier": "shortest",
   "javascript.preferences.importModuleSpecifierEnding": "js",
   "javascript.preferences.renameMatchingJsxTags": true,
-  "javascript.inlayHints.enumMemberValues.enabled": true,
   "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
   "javascript.inlayHints.parameterNames.enabled": "all",
   "javascript.inlayHints.parameterTypes.enabled": true,
@@ -383,7 +406,6 @@
   "typescript.updateImportsOnPaste.enabled": true,
   "typescript.workspaceSymbols.excludeLibrarySymbols": true,
   "typescript.tsserver.experimental.enableProjectDiagnostics": true,
-  "typescript.experimental.expandableHover": true,
 
   // HTML & Handlebars
   "html.format.unformatted": null,
@@ -453,11 +475,6 @@
   "markdown.validate.unusedLinkDefinitions.enabled": "warning",
   "markdown.editor.pasteUrlAsFormattedLink.enabled": "smart",
 
-  // Prisma specific configurations
-  "[prisma]": {
-    "editor.defaultFormatter": "Prisma.prisma"
-  },
-
   // JSON with comments specific configurations
   "[jsonc]": {
     "editor.formatOnSave": false,
@@ -486,33 +503,18 @@
   "vsicons.presets.hideExplorerArrows": true,
 
   // Code Spell Checker (Extension)
-  "cSpell.language": "en-GB,uk",
+  "cSpell.language": "en-GB",
   "cSpell.showStatus": false,
+  "cSpell.checkOnlyEnabledFileTypes": false,
+  "cSpell.checkVSCodeSystemFiles": false,
   "cSpell.enabledFileTypes": {
     "*": true,
-    "json": true,
-    "jsonc": true,
-    "prisma": true,
-    "properties": true,
-    "shellscript": true,
-    "git-commit": true,
-    "git-rebase": true,
-    "commit-msg": true
+    "markdown": true,
   },
   "cSpell.userWords": [
     "screencast",
     "sonarlint"
   ],
-
-  // GitLens (Extension)
-  "gitlens.currentLine.enabled": false,
-  "gitlens.hovers.currentLine.over": "line",
-  "gitlens.codeLens.enabled": false,
-  "gitlens.terminal.overrideGitEditor": false,
-  "gitlens.statusBar.enabled": false,
-  "gitlens.statusBar.pullRequests.enabled": false,
-  "gitlens.graph.statusBar.enabled": false,
-  "gitlens.launchpad.indicator.enabled": false,
 
   // ESLint (Extension)
   "eslint.useFlatConfig": true,
@@ -565,7 +567,8 @@
   // Turbo Console Log (extension)
   "turboConsoleLog.addSemicolonInTheEnd": true,
   "turboConsoleLog.delimiterInsideMessage": "~",
-  "turboConsoleLog.includeFileNameAndLineNum": true,
+  "turboConsoleLog.includeFilename": true,
+  "turboConsoleLog.includeLineNum": true,
   "turboConsoleLog.insertEmptyLineAfterLogMessage": false,
   "turboConsoleLog.insertEmptyLineBeforeLogMessage": false,
   "turboConsoleLog.insertEnclosingClass": true,

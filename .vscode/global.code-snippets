@@ -38,6 +38,9 @@
       "console.dir($1, {",
       "\tdepth: Infinity,",
       "\tshowHidden: true,",
+      "\tshowProxy: true",
+      "\tsorted: true",
+      "\tgetters: true",
       "\tnumericSeparator: true,",
       "});"
     ]

@@ -48,8 +48,8 @@
 	trustExitCode = true
 [core]
 	editor = code --wait
-	pager = less --quit-if-one-screen
-	untrackedcache = true
+	pager = less --quit-if-one-screen --tabs=4
+	untrackedCache = true
 	fsmonitor = true
 	# whitespace = trailing-space,space-before-tab,-indent-with-non-tab,tab-in-indent,cr-at-eol
 [color]
@@ -95,6 +95,8 @@
 	c = commit --signoff
 	# ex. (git ca)
 	ca = commit --signoff --amend
+	# ex. (git fixup $COMMIT_SHA)
+	fixup = commit --signoff --fixup
 	# ex. (git co main, git co -b feature, git co -)
 	co = checkout
 	# ex. (git b)
@@ -106,7 +108,7 @@
 	p = push origin HEAD # use --signed flag
 	fp = push --force-with-lease --force-if-includes origin HEAD
 	# outputs the log graph of git history with statistics
-	# ex. (git l)
+	# ex. (git l, git l --since='2 weeks ago')
 	l = log --oneline --graph --decorate --date=relative --stat
 	# stash the changes in a dirty working directory away, include untracked
 	# ex. (git st "some awesome code")
