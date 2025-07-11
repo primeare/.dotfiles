@@ -35,6 +35,7 @@
   "editor.minimap.enabled": false,
   "editor.find.addExtraSpaceOnTop": false,
   "editor.find.history": "never",
+  "editor.find.findOnType": true,
   "editor.semanticHighlighting.enabled": true,
   "editor.suggest.preview": true,
   "editor.suggest.localityBonus": true,
@@ -77,6 +78,7 @@
     "source.addMissingImports": "explicit",
     "source.organizeImports": "never"
   },
+  "editor.experimentalEditContextEnabled": true,
   "editor.experimental.asyncTokenization": true,
   "editor.experimental.preferTreeSitter.css": true,
   "editor.experimental.preferTreeSitter.regex": true,
@@ -87,6 +89,7 @@
   "window.nativeTabs": true,
   "window.commandCenter": false,
   "window.titleBarStyle": "custom",
+  "window.menuStyle": "custom",
   "window.title": "${activeEditorMedium}${separator}${rootName}${separator}${activeEditorState}",
   "window.newWindowDimensions": "maximized",
   "window.restoreFullscreen": true,
@@ -134,6 +137,7 @@
   "workbench.list.smoothScrolling": true,
   "workbench.view.alwaysShowHeaderActions": true,
   "workbench.settings.enableNaturalLanguageSearch": false,
+  "workbench.settings.showAISearchToggle": false,
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
 
@@ -184,6 +188,8 @@
   // Search
   "search.showLineNumbers": true,
   "search.smartCase": true,
+  "search.searchView.keywordSuggestions": true,
+  "search.searchView.semanticSearchBehavior": "manual",
   "search.exclude": {
     "**/.git": true,
     "**/.yarn": true,
@@ -217,11 +223,15 @@
     "sound": "auto"
   },
 
+  // Security
+  "security.promptForLocalFileProtocolHandling": false,
+
   // Terminal
   "terminal.explorerKind": "external",
   "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.suggest.enabled": true,
   "terminal.integrated.suggest.inlineSuggestion": "alwaysOnTopExceptExactMatch",
+  "terminal.integrated.suggest.selectionMode": "partial",
   "terminal.integrated.suggest.cdPath": "relative",
   "terminal.integrated.shellIntegration.enabled": true,
   "terminal.integrated.shellIntegration.decorationsEnabled": "both",
@@ -326,6 +336,7 @@
 
   // Git & SCM
   "git.defaultBranchName": "main",
+  "git.terminalAuthentication": false,
   "git.enableStatusBarSync": false,
   "git.mergeEditor": false,
   "git.untrackedChanges": "separate",
@@ -339,7 +350,7 @@
   "git.inputValidationLength": 72,
   "git.inputValidationSubjectLength": 72,
   "git.useEditorAsCommitInput": true,
-  "git.terminalGitEditor": true,
+  "git.terminalGitEditor": false,
   "git.diagnosticsCommitHook.enabled": true,
   "git.blame.statusBarItem.enabled": true,
   "git.blame.statusBarItem.template": "${authorName} (${authorDateAgo})",
@@ -513,7 +524,8 @@
   },
   "cSpell.userWords": [
     "screencast",
-    "sonarlint"
+    "sonarlint",
+    "!bellow"
   ],
 
   // ESLint (Extension)
