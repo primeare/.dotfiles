@@ -33,6 +33,7 @@
   "editor.overtypeOnPaste": false,
   "editor.overtypeCursorStyle": "underline",
   "editor.minimap.enabled": false,
+  "editor.aiStats.enabled": true,
   "editor.find.addExtraSpaceOnTop": false,
   "editor.find.history": "never",
   "editor.find.findOnType": true,
@@ -78,7 +79,6 @@
     "source.addMissingImports": "explicit",
     "source.organizeImports": "never"
   },
-  "editor.experimentalEditContextEnabled": true,
   "editor.experimental.asyncTokenization": true,
   "editor.experimental.preferTreeSitter.css": true,
   "editor.experimental.preferTreeSitter.regex": true,
@@ -343,6 +343,7 @@
   "git.discardUntrackedChangesToTrash": true,
   "git.showReferenceDetails": true,
   "git.autofetch": true,
+  "git.detectWorktrees": true,
   "git.decorations.enabled": true,
   "git.allowNoVerifyCommit": false,
   "git.allowForcePush": false,
@@ -517,7 +518,7 @@
   "cSpell.language": "en-GB",
   "cSpell.showStatus": false,
   "cSpell.checkOnlyEnabledFileTypes": false,
-  "cSpell.checkVSCodeSystemFiles": false,
+  "cSpell.checkVSCodeSystemFiles": true,
   "cSpell.enabledFileTypes": {
     "*": true,
     "markdown": true,
@@ -588,9 +589,9 @@
   "turboConsoleLog.logFunction": "log",
   "turboConsoleLog.logMessagePrefix": "",
   "turboConsoleLog.logMessageSuffix": "",
-  "turboConsoleLog.logType": "log",
   "turboConsoleLog.quote": "'",
   "turboConsoleLog.wrapLogMessage": false,
+  "turboConsoleLog.logCorrectionNotificationEnabled": true,
 
   // Live Server (extension)
   "liveServer.settings.CustomBrowser": "chrome:PrivateMode",
