@@ -33,6 +33,7 @@ starship --version
 
 whereis fnm
 fnm --version
+fnm list
 
 whereis node
 node --version

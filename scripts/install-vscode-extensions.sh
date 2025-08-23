@@ -11,18 +11,7 @@ if [[ ! -f "$VSCODE_EXTENSIONS_JSON_PATH" ]]; then
   exit 1
 fi
 
-VSCODE_EXTENSIONS=$(node --input-type=module --eval "
-  import { readFileSync } from 'node:fs';
-
-  const data = readFileSync('$VSCODE_EXTENSIONS_JSON_PATH', 'utf8');
-  const json = JSON.parse(data);
-
-  if (!Array.isArray(json.recommendations)) {
-    throw new Error('\'recommendations\' is not an array.');
-  }
-
-  console.log(json.recommendations.join(' '));
-")
+VSCODE_EXTENSIONS=$(jq -r '.recommendations | join(" ")' "$VSCODE_EXTENSIONS_JSON_PATH")
 
 if [[ -z "$VSCODE_EXTENSIONS" ]]; then
   echo "No recommendations found in $VSCODE_EXTENSIONS_JSON_PATH."
