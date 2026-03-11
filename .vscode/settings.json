@@ -59,7 +59,7 @@
   "editor.stickyScroll.maxLineCount": 5,
   "editor.defaultFormatter": null,
   "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
+  "editor.formatOnPaste": false,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.pasteAs.preferences": [
     "text.updateImports",
@@ -112,6 +112,7 @@
   "workbench.secondarySideBar.showLabels": true,
   "workbench.navigationControl.enabled": false,
   "workbench.layoutControl.enabled": false,
+  "workbench.editor.useModal": "some",
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.closeOnFileDelete": true,
@@ -128,12 +129,14 @@
   "workbench.editor.dragToOpenWindow": false,
   "workbench.editor.customLabels.enabled": true,
   "workbench.editor.customLabels.patterns": {},
+  "workbench.editor.showTabIndex": false,
   "workbench.tree.enableStickyScroll": true,
   "workbench.tree.stickyScrollMaxItemCount": 7,
   "workbench.tree.renderIndentGuides": "always",
   "workbench.commandPalette.preserveInput": true,
   "workbench.commandPalette.experimental.suggestCommands": true,
   "workbench.commandPalette.experimental.enableNaturalLanguageSearch": true,
+  "workbench.notifications.position": "bottom-right",
   "workbench.list.smoothScrolling": true,
   "workbench.view.alwaysShowHeaderActions": true,
   "workbench.settings.enableNaturalLanguageSearch": false,
@@ -229,6 +232,8 @@
   // Terminal
   "terminal.explorerKind": "external",
   "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.integrated.enableKittyKeyboardProtocol": false,
+  "terminal.integrated.enableImages": true,
   "terminal.integrated.suggest.enabled": true,
   "terminal.integrated.suggest.inlineSuggestion": "alwaysOnTopExceptExactMatch",
   "terminal.integrated.suggest.selectionMode": "partial",
@@ -280,6 +285,7 @@
   "debug.confirmOnExit": "always",
   "debug.openExplorerOnEnd": true,
   "debug.showVariableTypes": true,
+  "debug.breakpointsView.presentation": "tree",
   "debug.javascript.enableNetworkView": true,
 
   // Zen Mode
@@ -295,11 +301,14 @@
   "mdb.sendTelemetry": false,
 
   // Extensions
+  "extensions.allowOpenInModalEditor": true,
   "extensions.autoCheckUpdates": true,
   "extensions.experimental.deferredStartupFinishedActivation": true,
   "extensions.closeExtensionDetailsOnViewChange": true,
   "extensions.ignoreRecommendations": true,
-  "extensions.allowed": "*",
+  "extensions.allowed": {
+    "*": true,
+  },
 
   // Problems
   "problems.defaultViewMode": "table",
@@ -335,13 +344,16 @@
   "mergeEditor.showDeletionMarkers": true,
 
   // Git & SCM
+  "git.path": "/usr/bin/git",
   "git.defaultBranchName": "main",
   "git.terminalAuthentication": false,
   "git.enableStatusBarSync": false,
   "git.mergeEditor": false,
   "git.untrackedChanges": "separate",
+  "git.ignoreMissingGitWarning": false,
   "git.discardUntrackedChangesToTrash": true,
   "git.showReferenceDetails": true,
+  "git.addAICoAuthor": "chatAndAgent",
   "git.autofetch": true,
   "git.detectWorktrees": true,
   "git.decorations.enabled": true,
@@ -350,15 +362,19 @@
   "git.inputValidation": true,
   "git.inputValidationLength": 72,
   "git.inputValidationSubjectLength": 72,
+  "git.verboseCommit": true,
   "git.useEditorAsCommitInput": true,
   "git.terminalGitEditor": false,
   "git.diagnosticsCommitHook.enabled": true,
   "git.blame.statusBarItem.enabled": true,
   "git.blame.statusBarItem.template": "${authorName} (${authorDateAgo})",
   "git.blame.editorDecoration.enabled": false,
+  "git.blame.ignoreWhitespace": true,
   "scm.diffDecorationsIgnoreTrimWhitespace": "false",
   "scm.workingSets.enabled": true,
   "scm.workingSets.default": "current",
+  "scm.repositories.explorer": true,
+  "scm.repositories.selectionMode": "multiple",
   "[git-commit]": {
     // git commit message subject max length is 72 characters on GitHub
     // but even better to keep a subject shorter (less than 50)
@@ -487,7 +503,17 @@
   "markdown.validate.unusedLinkDefinitions.enabled": "warning",
   "markdown.editor.pasteUrlAsFormattedLink.enabled": "smart",
 
-  // JSON with comments specific configurations
+  // JSON
+  "json.schemaDownload.trustedDomains": {
+    "https://schemastore.azurewebsites.net/": true,
+    "https://raw.githubusercontent.com/": true,
+    "https://www.schemastore.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://json-schema.org/": true,
+    "https://developer.microsoft.com/": true,
+  },
+
+  // JSON with comments
   "[jsonc]": {
     "editor.formatOnSave": false,
     "editor.formatOnPaste": false
@@ -505,18 +531,32 @@
     "editor.formatOnSaveMode": "file"
   },
 
+  // Docker Compose
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    }
+  },
+
+  // GitHub Actions
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+
   /* Extensions
   ------------------------------------------------------------------------- */
 
-  // CodeTour (Extension)
-  "codetour.recordMode": "pattern",
-
-  // vscode-icons (Extension)
+  // Visual Studio Code Icons
   "vsicons.presets.hideExplorerArrows": true,
 
-  // Code Spell Checker (Extension)
+  // Code Spell Checker
   "cSpell.language": "en-GB",
-  "cSpell.showStatus": false,
   "cSpell.checkOnlyEnabledFileTypes": false,
   "cSpell.checkVSCodeSystemFiles": true,
   "cSpell.enabledFileTypes": {
@@ -526,10 +566,11 @@
   "cSpell.userWords": [
     "screencast",
     "sonarlint",
+    "clearable",
     "!bellow"
   ],
 
-  // ESLint (Extension)
+  // ESLint
   "eslint.useFlatConfig": true,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
@@ -541,28 +582,32 @@
     "typescriptreact",
   ],
 
-  // Visual Studio IntelliCode (Extension)
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  // Claude Code
+  "claudeCode.useCtrlEnterToSend": true,
 
-  // Template String Converter (Extension)
+  // Playwright
+  "playwright.reuseBrowser": true,
+  "playwright.showTrace": false,
+
+  // Template String Converter
   "template-string-converter.addBracketsToProps": true,
   "template-string-converter.autoRemoveTemplateString": true,
   "template-string-converter.convertOutermostQuotes": true,
 
-  // Doxygen Documentation Generator (Extension)
+  // Doxygen Documentation Generator
   "doxdocgen.generic.useGitUserName": true,
   "doxdocgen.generic.useGitUserEmail": true,
 
-  // NPM IntelliSense (Extension)
+  // NPM IntelliSense
   "npm-intellisense.scanDevDependencies": true,
 
-  // Path IntelliSense (Extension)
+  // Path IntelliSense
   "path-intellisense.showHiddenFiles": true,
 
-  // Go (Extension)
+  // Go
   "go.installDependenciesWhenBuilding": true,
 
-  // Markdown All in One (Extension)
+  // Markdown All in One
   "markdown.extension.preview.autoShowPreviewToSide": false,
   "markdown.extension.toc.levels": "2..6",
   "markdown.extension.toc.slugifyMode": "github",
@@ -573,27 +618,11 @@
     ]
   },
 
-  // Figma (Extension)
+  // Figma
   "figma.autocompleteProperties": true,
   "figma.autocompleteBlocks": true,
 
-  // Turbo Console Log (extension)
-  "turboConsoleLog.addSemicolonInTheEnd": true,
-  "turboConsoleLog.delimiterInsideMessage": "~",
-  "turboConsoleLog.includeFilename": true,
-  "turboConsoleLog.includeLineNum": true,
-  "turboConsoleLog.insertEmptyLineAfterLogMessage": false,
-  "turboConsoleLog.insertEmptyLineBeforeLogMessage": false,
-  "turboConsoleLog.insertEnclosingClass": true,
-  "turboConsoleLog.insertEnclosingFunction": true,
-  "turboConsoleLog.logFunction": "log",
-  "turboConsoleLog.logMessagePrefix": "",
-  "turboConsoleLog.logMessageSuffix": "",
-  "turboConsoleLog.quote": "'",
-  "turboConsoleLog.wrapLogMessage": false,
-  "turboConsoleLog.logCorrectionNotificationEnabled": true,
-
-  // Live Server (extension)
+  // Live Server
   "liveServer.settings.CustomBrowser": "chrome:PrivateMode",
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.donotVerifyTags": true
