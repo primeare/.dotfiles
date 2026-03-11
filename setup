@@ -3,7 +3,6 @@
 # exit immediately if a pipeline exits with a non-zero status
 set -Eeuxo pipefail
 
-ARCH=$(uname -m)
 SCRIPT_DIR="$(cd "$(dirname "$0")" &> /dev/null && pwd)"
 
 # TODO: use "associative array" when Bash 4 comes to macOS
@@ -32,11 +31,6 @@ if [[ "${CI:-false}" != "true" ]]; then
 
   # Install all available software updates (OS, Safari, security etc.)
   softwareupdate --install --all --agree-to-license --verbose
-fi
-
-if [[ $ARCH == "arm64" ]]; then
-  # Install Rosetta 2 (only for Apple Silicon)
-  softwareupdate --install-rosetta --agree-to-license --verbose
 fi
 
 # Install Fish shell
