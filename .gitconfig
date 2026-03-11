@@ -101,6 +101,8 @@
 	co = checkout
 	# ex. (git b)
 	b = branch -vv
+	# delete branch, ex. (git db feature-branch)
+	db = branch --delete
 	# pull without rebase
 	pu = pull --no-rebase --ff --signoff
 	# pushes changes to the remote branch of the same name
