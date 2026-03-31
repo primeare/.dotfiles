@@ -101,8 +101,8 @@
 	co = checkout
 	# ex. (git b)
 	b = branch -vv
-	# delete branch, ex. (git db feature-branch)
-	db = branch --delete
+	# force delete branch, ex. (git db feature-branch)
+	db = branch --delete --force
 	# pull without rebase
 	pu = pull --no-rebase --ff --signoff
 	# pushes changes to the remote branch of the same name
@@ -112,9 +112,9 @@
 	# outputs the log graph of git history with statistics
 	# ex. (git l, git l --since='2 weeks ago')
 	l = log --oneline --graph --decorate --date=relative --stat
-	# stash the changes in a dirty working directory away, include untracked
+	# stash staged changes
 	# ex. (git st "some awesome code")
-	st = stash push --include-untracked --message
+	st = stash push --staged --message
 	# ex. (git stl)
 	stl = stash list
 	# outputs log that relates to a specified file
