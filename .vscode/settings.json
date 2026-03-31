@@ -37,6 +37,7 @@
   "editor.find.addExtraSpaceOnTop": false,
   "editor.find.history": "never",
   "editor.find.findOnType": true,
+  "editor.find.closeOnResult": true,
   "editor.semanticHighlighting.enabled": true,
   "editor.suggest.preview": true,
   "editor.suggest.localityBonus": true,
@@ -75,9 +76,11 @@
     "source.fixAll.eslint": "explicit",
     "source.fixAll.ts": "explicit",
     "source.fixAll.stylelint": "explicit",
+    "source.fixAll.shellcheck": "explicit",
     "source.sortImports": "explicit",
     "source.addMissingImports": "explicit",
-    "source.organizeImports": "never"
+    "source.organizeImports": "never",
+    "source.sort.json": "never"
   },
   "editor.experimental.asyncTokenization": true,
   "editor.experimental.preferTreeSitter.css": true,
@@ -100,13 +103,14 @@
   "window.systemColorTheme": "auto",
 
   // Workbench
-  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.colorTheme": "Dark Modern",
+  "workbench.preferredDarkColorTheme": "Dark Modern",
   "workbench.iconTheme": "vscode-icons",
   "workbench.productIconTheme": "Default",
   "workbench.startupEditor": "none",
   "workbench.externalBrowser": "chrome",
   "workbench.sideBar.location": "right",
-  "workbench.secondarySideBar.defaultVisibility": "visible",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
   "workbench.activityBar.location": "top",
   "workbench.panel.showLabels": true,
   "workbench.secondarySideBar.showLabels": true,
@@ -313,9 +317,6 @@
   // Problems
   "problems.defaultViewMode": "table",
 
-  // Chat
-  "chat.commandCenter.enabled": false,
-
   // Screencast Mode
   "screencastMode.fontSize": 56,
   "screencastMode.keyboardOptions": {
@@ -337,7 +338,6 @@
   "diffEditor.renderSideBySide": true,
   "diffEditor.experimental.showMoves": true,
   "diffEditor.experimental.useTrueInlineView": true,
-  "multiDiffEditor.experimental.enabled": true,
 
   // Merge Editor
   "mergeEditor.diffAlgorithm": "advanced",
@@ -389,51 +389,38 @@
   "github.gitProtocol": "ssh",
   "github.showAvatar": true,
 
-  // JavaScript
+  // JavaScript & TypeScript
+  "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+  "js/ts.updateImportsOnFileMove.enabled": "prompt",
+  "js/ts.updateImportsOnPaste.enabled": true,
+  "js/ts.referencesCodeLens.enabled": true,
+  "js/ts.implementationsCodeLens.enabled": true,
+  "js/ts.workspaceSymbols.excludeLibrarySymbols": true,
   "js/ts.implicitProjectConfig.checkJs": true,
   "js/ts.implicitProjectConfig.strictNullChecks": true,
   "js/ts.implicitProjectConfig.strictFunctionTypes": true,
   "js/ts.implicitProjectConfig.module": "ESNext",
   "js/ts.implicitProjectConfig.target": "ESNext",
-  "javascript.validate.enable": true,
-  "javascript.updateImportsOnFileMove.enabled": "prompt",
-  "javascript.preferences.quoteStyle": "single",
-  "javascript.preferences.importModuleSpecifier": "shortest",
-  "javascript.preferences.importModuleSpecifierEnding": "js",
-  "javascript.preferences.renameMatchingJsxTags": true,
-  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "javascript.inlayHints.parameterNames.enabled": "all",
-  "javascript.inlayHints.parameterTypes.enabled": true,
-  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
-  "javascript.inlayHints.variableTypes.enabled": true,
-  "javascript.updateImportsOnPaste.enabled": true,
-  "javascript.referencesCodeLens.enabled": true,
+  "js/ts.preferences.quoteStyle": "single",
+  "js/ts.preferences.importModuleSpecifier": "shortest",
+  "js/ts.preferences.importModuleSpecifierEnding": "js",
+  "js/ts.preferences.includePackageJsonAutoImports": "on",
+  "js/ts.preferences.preferTypeOnlyAutoImports": true,
+  "js/ts.preferences.renameMatchingJsxTags": true,
+  "js/ts.preferences.jsxAttributeCompletionStyle": "auto",
+  "js/ts.preferences.useAliasesForRenames": false,
+  "js/ts.suggest.autoImports": true,
+  "js/ts.suggest.completeFunctionCalls": true,
+  "js/ts.inlayHints.enumMemberValues.enabled": true,
+  "js/ts.inlayHints.functionLikeReturnTypes.enabled": true,
+  "js/ts.inlayHints.parameterNames.enabled": "all",
+  "js/ts.inlayHints.parameterTypes.enabled": true,
+  "js/ts.inlayHints.propertyDeclarationTypes.enabled": true,
+  "js/ts.inlayHints.variableTypes.enabled": true,
+  "js/ts.tsserver.experimental.enableProjectDiagnostics": true,
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
-
-  // TypeScript
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.updateImportsOnFileMove.enabled": "prompt",
-  "typescript.suggest.autoImports": true,
-  "typescript.suggest.completeFunctionCalls": true,
-  "typescript.preferences.quoteStyle": "single",
-  "typescript.preferences.importModuleSpecifier": "shortest",
-  "typescript.preferences.importModuleSpecifierEnding": "auto",
-  "typescript.preferences.includePackageJsonAutoImports": "on",
-  "typescript.preferences.renameMatchingJsxTags": true,
-  "typescript.preferences.preferTypeOnlyAutoImports": true,
-  "typescript.inlayHints.enumMemberValues.enabled": true,
-  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "typescript.inlayHints.parameterNames.enabled": "all",
-  "typescript.inlayHints.parameterTypes.enabled": true,
-  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
-  "typescript.inlayHints.variableTypes.enabled": true,
-  "typescript.referencesCodeLens.enabled": true,
-  "typescript.implementationsCodeLens.enabled": true,
-  "typescript.updateImportsOnPaste.enabled": true,
-  "typescript.workspaceSymbols.excludeLibrarySymbols": true,
-  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
 
   // HTML & Handlebars
   "html.format.unformatted": null,
@@ -584,6 +571,7 @@
 
   // Claude Code
   "claudeCode.useCtrlEnterToSend": true,
+  "claudeCode.useTerminal": true,
 
   // Playwright
   "playwright.reuseBrowser": true,
@@ -617,10 +605,6 @@
       "## Table of Contents"
     ]
   },
-
-  // Figma
-  "figma.autocompleteProperties": true,
-  "figma.autocompleteBlocks": true,
 
   // Live Server
   "liveServer.settings.CustomBrowser": "chrome:PrivateMode",
