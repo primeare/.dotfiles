@@ -30,12 +30,12 @@ jobs:
     steps:
       - id: checkout
         name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - id: sonarcloud
         name: SonarCloud Scan
-        uses: sonarsource/sonarqube-scan-action@v4
+        uses: sonarsource/sonarqube-scan-action@v7
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - id: shellcheck
@@ -46,15 +46,11 @@ jobs:
 
   setup-and-test:
     name: Setup workstation and test
-    strategy:
-      fail-fast: true
-      matrix:
-        os: [macos-13, macos-14]
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
     steps:
       - id: checkout
         name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - id: setup
         name: Setup workstation
         run: ./setup
