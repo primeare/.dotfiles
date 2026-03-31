@@ -24,7 +24,7 @@
   // },
   "JS/TS Import": {
     "description": "Import a module in JS/TS",
-    "scope": "javascript,typescript",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "im",
     "body": [
       "import $2 from '$1';"
