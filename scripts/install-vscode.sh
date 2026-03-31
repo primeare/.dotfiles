@@ -8,17 +8,17 @@ if command -v code &> /dev/null; then
   exit 0
 fi
 
-VSCODE_DOWNLOAD_URL="https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal"
-FILE_TEMP_OUTPUT_PATH="./vscode.zip"
+VSCODE_DOWNLOAD_URL="https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal-dmg"
+DMG_OUTPUT_PATH="./vscode.dmg"
 
 curl "$VSCODE_DOWNLOAD_URL" \
-  --output $FILE_TEMP_OUTPUT_PATH \
+  --output $DMG_OUTPUT_PATH \
   --fail \
   --compressed \
   --location
 
-unzip -ao $FILE_TEMP_OUTPUT_PATH
+sudo hdiutil attach $DMG_OUTPUT_PATH
+cp -r -v "/Volumes/VS Code/Visual Studio Code.app/" "/Applications/Visual Studio Code.app"
+sudo hdiutil detach "/Volumes/VS Code"
 
-mv -f -v "./Visual Studio Code.app" "/Applications/Visual Studio Code.app"
-
-rm -rf $FILE_TEMP_OUTPUT_PATH
+rm -rf $DMG_OUTPUT_PATH
